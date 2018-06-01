@@ -9,11 +9,6 @@ package com.core.farmacia.dao;
  *
  * @author nuevo
  */
-public interface DAOManager {
+public interface DAOVenta {
     
-    DAOCompra comprar();
-    DAOVenta vender();
-    DAORegistroCompra registrarCompra();
-    DAORegistroVenta registrarVenta();
-    DAOPersona crearPersona();
 }

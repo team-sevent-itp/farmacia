@@ -5,10 +5,22 @@
  */
 package com.core.farmacia.dao;
 
+import java.util.List;
+
 /**
  *
  * @author nuevo
  */
-public interface DAOGenrico {
+public interface DAOGenrico<T, K> {
+
+    void create() throws DAOException;
+
+    T readOne(K id) throws DAOException;
+
+    void update(T Objeto) throws DAOException;
+    
+    void delete(K id) throws DAOException;
+    
+    List<T> readAll() throws DAOException;
     
 }
