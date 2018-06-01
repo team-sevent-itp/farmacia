@@ -10,4 +10,19 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+   
+    <dependencies>
+        <dependency>
+            <groupId>com.toedter</groupId>
+            <artifactId>jcalendar</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.rs</groupId>
+            <artifactId>rscalendar</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
+    
+
 </project>
