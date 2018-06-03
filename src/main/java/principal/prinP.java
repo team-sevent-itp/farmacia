@@ -27,6 +27,7 @@ public class prinP extends javax.swing.JFrame {
        // this.setExtendedState(MAXIMIZED_BOTH);
         this.setLocationRelativeTo(this);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        
      //Animacion.Animacion.mover_izquierda(0, -110, 2, 2, pnlMenu);
     }
 
@@ -44,7 +45,6 @@ public class prinP extends javax.swing.JFrame {
         jButtonCerrar = new javax.swing.JButton();
         jButtonMinimizar = new javax.swing.JButton();
         pnlPrincipal = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         pnlMenu = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         JpanelBotonInventario = new javax.swing.JPanel();
@@ -67,6 +67,7 @@ public class prinP extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1000, 730));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelUndercorated.setBackground(new java.awt.Color(0, 49, 105));
@@ -123,15 +124,13 @@ public class prinP extends javax.swing.JFrame {
         });
         jPanelUndercorated.add(jButtonMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 0, 30, 30));
 
-        getContentPane().add(jPanelUndercorated, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 30));
+        getContentPane().add(jPanelUndercorated, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 30));
 
         pnlPrincipal.setBackground(new java.awt.Color(255, 255, 255));
         pnlPrincipal.setAlignmentX(0.0F);
         pnlPrincipal.setAlignmentY(0.0F);
         pnlPrincipal.setLayout(new java.awt.CardLayout());
-        getContentPane().add(pnlPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 890, 640));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 30, 70));
-        jLabel2.getAccessibleContext().setAccessibleParent(JpanelBotonInventario);
+        getContentPane().add(pnlPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 890, 600));
 
         pnlMenu.setBackground(new java.awt.Color(0, 18, 50));
         pnlMenu.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 5, 0, 0, new java.awt.Color(239, 238, 244)));
@@ -147,14 +146,18 @@ public class prinP extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JpanelBotonInventarioMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JpanelBotonInventarioMouseEntered(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 JpanelBotonInventarioMousePressed(evt);
             }
         });
         JpanelBotonInventario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Broadway", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setBackground(new java.awt.Color(230, 230, 204));
+        jLabel1.setFont(new java.awt.Font("Eras Demi ITC", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(230, 230, 204));
         jLabel1.setText("Inventario");
         JpanelBotonInventario.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, -1));
 
@@ -162,6 +165,9 @@ public class prinP extends javax.swing.JFrame {
         jLabelInventario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelInventarioMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelInventarioMouseEntered(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabelInventarioMousePressed(evt);
@@ -176,14 +182,17 @@ public class prinP extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JpanelBotonVentasMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JpanelBotonVentasMouseEntered(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 JpanelBotonVentasMousePressed(evt);
             }
         });
         JpanelBotonVentas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelVenta.setFont(new java.awt.Font("Broadway", 0, 14)); // NOI18N
-        jLabelVenta.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelVenta.setFont(new java.awt.Font("Eras Demi ITC", 0, 14)); // NOI18N
+        jLabelVenta.setForeground(new java.awt.Color(230, 230, 204));
         jLabelVenta.setText("Ventas");
         JpanelBotonVentas.add(jLabelVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 70, -1));
 
@@ -193,6 +202,9 @@ public class prinP extends javax.swing.JFrame {
         jLabelIconoVenta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelIconoVentaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelIconoVentaMouseEntered(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabelIconoVentaMousePressed(evt);
@@ -207,14 +219,17 @@ public class prinP extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JpanelBotonCompraMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JpanelBotonCompraMouseEntered(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 JpanelBotonCompraMousePressed(evt);
             }
         });
         JpanelBotonCompra.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelCompra.setFont(new java.awt.Font("Broadway", 0, 14)); // NOI18N
-        jLabelCompra.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelCompra.setFont(new java.awt.Font("Eras Demi ITC", 0, 14)); // NOI18N
+        jLabelCompra.setForeground(new java.awt.Color(230, 230, 204));
         jLabelCompra.setText("Compra");
         JpanelBotonCompra.add(jLabelCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
@@ -222,6 +237,9 @@ public class prinP extends javax.swing.JFrame {
         jLabelIcoCompra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelIcoCompraMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelIcoCompraMouseEntered(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabelIcoCompraMousePressed(evt);
@@ -236,14 +254,17 @@ public class prinP extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JpanelBotonProvedoresMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JpanelBotonProvedoresMouseEntered(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 JpanelBotonProvedoresMousePressed(evt);
             }
         });
         JpanelBotonProvedores.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelProveedores.setFont(new java.awt.Font("Broadway", 0, 14)); // NOI18N
-        jLabelProveedores.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelProveedores.setFont(new java.awt.Font("Eras Demi ITC", 0, 14)); // NOI18N
+        jLabelProveedores.setForeground(new java.awt.Color(230, 230, 204));
         jLabelProveedores.setText("Proveedores");
         JpanelBotonProvedores.add(jLabelProveedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
@@ -251,6 +272,9 @@ public class prinP extends javax.swing.JFrame {
         jLabelIcoProveedores.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelIcoProveedoresMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelIcoProveedoresMouseEntered(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabelIcoProveedoresMousePressed(evt);
@@ -265,14 +289,17 @@ public class prinP extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanelBontonClienteMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanelBontonClienteMouseEntered(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jPanelBontonClienteMousePressed(evt);
             }
         });
         jPanelBontonCliente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelCliente.setFont(new java.awt.Font("Broadway", 0, 14)); // NOI18N
-        jLabelCliente.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelCliente.setFont(new java.awt.Font("Eras Demi ITC", 0, 14)); // NOI18N
+        jLabelCliente.setForeground(new java.awt.Color(230, 230, 204));
         jLabelCliente.setText("Cliente");
         jPanelBontonCliente.add(jLabelCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
@@ -280,6 +307,9 @@ public class prinP extends javax.swing.JFrame {
         jLabelIconoCliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelIconoClienteMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabelIconoClienteMouseEntered(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabelIconoClienteMousePressed(evt);
@@ -298,7 +328,7 @@ public class prinP extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        pnlMenu.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 70, 50));
+        pnlMenu.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 60, 50));
 
         getContentPane().add(pnlMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(-130, 30, 190, 700));
 
@@ -313,14 +343,14 @@ public class prinP extends javax.swing.JFrame {
          //pnlMenu.setBounds(10, 59, 180, 520);
          
         if (posicion > -1) {
-            Animacion.Animacion.mover_izquierda(0, -110, 2, 2, pnlMenu);
-           // Animacion.Animacion.mover_izquierda(0, 0, 2, 2, pnlPrincipal);
+            Animacion.Animacion.mover_izquierda(0, -130, 2, 2, pnlMenu);
+            Animacion.Animacion.mover_izquierda(190, 60, 2, 2, pnlPrincipal);
            // pnlMenu.setBounds(10, 59, 60, 520);
             
         } else {
           
-            Animacion.Animacion.mover_derecha(-110, 0, 2, 2, pnlMenu);
-            //Animacion.Animacion.mover_derecha(0, 0, 2, 2, pnlPrincipal);
+            Animacion.Animacion.mover_derecha(-130, 0, 2, 2, pnlMenu);
+            Animacion.Animacion.mover_derecha(60, 190, 2, 2, pnlPrincipal);
             // pnlMenu.setBounds(10, 59, 180, 520);
 
         }
@@ -346,27 +376,32 @@ public class prinP extends javax.swing.JFrame {
     private void JpanelBotonInventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonInventarioMouseClicked
         new CambiaPanel(pnlPrincipal, new panelInventario());
         Animacion.Animacion.mover_izquierda(0, -130, 2, 2, pnlMenu);
+         Animacion.Animacion.mover_izquierda(190, 60, 2, 2, pnlPrincipal);
          
     }//GEN-LAST:event_JpanelBotonInventarioMouseClicked
 
     private void JpanelBotonVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonVentasMouseClicked
          new CambiaPanel(pnlPrincipal, new panelVenta());
         Animacion.Animacion.mover_izquierda(0, -130, 2, 2, pnlMenu);
+         Animacion.Animacion.mover_izquierda(190, 60, 2, 2, pnlPrincipal);
     }//GEN-LAST:event_JpanelBotonVentasMouseClicked
 
     private void JpanelBotonCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonCompraMouseClicked
         new CambiaPanel(pnlPrincipal, new panelCompra());
         Animacion.Animacion.mover_izquierda(0, -130, 2, 2, pnlMenu);
+         Animacion.Animacion.mover_izquierda(190, 60, 2, 2, pnlPrincipal);
     }//GEN-LAST:event_JpanelBotonCompraMouseClicked
 
     private void JpanelBotonProvedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonProvedoresMouseClicked
          new CambiaPanel(pnlPrincipal, new panelProveedor());
         Animacion.Animacion.mover_izquierda(0, -130, 2, 2, pnlMenu);
+         Animacion.Animacion.mover_izquierda(190, 60, 2, 2, pnlPrincipal);
     }//GEN-LAST:event_JpanelBotonProvedoresMouseClicked
 
     private void jPanelBontonClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelBontonClienteMouseClicked
          new CambiaPanel(pnlPrincipal, new panelCliente());
         Animacion.Animacion.mover_izquierda(0, -130, 2, 2, pnlMenu);
+         Animacion.Animacion.mover_izquierda(190, 60, 2, 2, pnlPrincipal);
     }//GEN-LAST:event_jPanelBontonClienteMouseClicked
 
     private void JpanelBotonInventarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonInventarioMousePressed
@@ -477,14 +512,94 @@ public class prinP extends javax.swing.JFrame {
        this.setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_jButtonMinimizarMouseClicked
 
+    private void JpanelBotonInventarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonInventarioMouseEntered
+        setColor(JpanelBotonInventario);
+       resetColor(JpanelBotonVentas);
+        resetColor(JpanelBotonCompra);
+         resetColor(JpanelBotonProvedores);
+          resetColor(jPanelBontonCliente);
+    }//GEN-LAST:event_JpanelBotonInventarioMouseEntered
+
+    private void JpanelBotonVentasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonVentasMouseEntered
+       setColor(JpanelBotonVentas);
+       resetColor(JpanelBotonInventario);
+        resetColor(JpanelBotonCompra);
+         resetColor(JpanelBotonProvedores);
+          resetColor(jPanelBontonCliente);
+    }//GEN-LAST:event_JpanelBotonVentasMouseEntered
+
+    private void JpanelBotonCompraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonCompraMouseEntered
+        setColor(JpanelBotonCompra);
+       resetColor(JpanelBotonVentas);
+        resetColor(JpanelBotonInventario);
+         resetColor(JpanelBotonProvedores);
+          resetColor(jPanelBontonCliente);
+    }//GEN-LAST:event_JpanelBotonCompraMouseEntered
+
+    private void JpanelBotonProvedoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonProvedoresMouseEntered
+      setColor(JpanelBotonProvedores);
+       resetColor(JpanelBotonVentas);
+        resetColor(JpanelBotonInventario);
+         resetColor(JpanelBotonCompra);
+          resetColor(jPanelBontonCliente);
+    }//GEN-LAST:event_JpanelBotonProvedoresMouseEntered
+
+    private void jPanelBontonClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelBontonClienteMouseEntered
+       setColor(jPanelBontonCliente);
+       resetColor(JpanelBotonVentas);
+        resetColor(JpanelBotonInventario);
+         resetColor(JpanelBotonCompra);
+          resetColor(JpanelBotonProvedores);
+    }//GEN-LAST:event_jPanelBontonClienteMouseEntered
+
+    private void jLabelInventarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelInventarioMouseEntered
+        setColor(JpanelBotonInventario);
+       resetColor(JpanelBotonVentas);
+        resetColor(JpanelBotonCompra);
+         resetColor(JpanelBotonProvedores);
+          resetColor(jPanelBontonCliente);
+    }//GEN-LAST:event_jLabelInventarioMouseEntered
+
+    private void jLabelIconoVentaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIconoVentaMouseEntered
+       setColor(JpanelBotonVentas);
+       resetColor(JpanelBotonInventario);
+        resetColor(JpanelBotonCompra);
+         resetColor(JpanelBotonProvedores);
+          resetColor(jPanelBontonCliente);
+    }//GEN-LAST:event_jLabelIconoVentaMouseEntered
+
+    private void jLabelIcoCompraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIcoCompraMouseEntered
+      setColor(JpanelBotonCompra);
+       resetColor(JpanelBotonVentas);
+        resetColor(JpanelBotonInventario);
+         resetColor(JpanelBotonProvedores);
+          resetColor(jPanelBontonCliente);
+    }//GEN-LAST:event_jLabelIcoCompraMouseEntered
+
+    private void jLabelIcoProveedoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIcoProveedoresMouseEntered
+      setColor(JpanelBotonProvedores);
+       resetColor(JpanelBotonVentas);
+        resetColor(JpanelBotonInventario);
+         resetColor(JpanelBotonCompra);
+          resetColor(jPanelBontonCliente);
+    }//GEN-LAST:event_jLabelIcoProveedoresMouseEntered
+
+    private void jLabelIconoClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIconoClienteMouseEntered
+         setColor(jPanelBontonCliente);
+       resetColor(JpanelBotonVentas);
+        resetColor(JpanelBotonInventario);
+         resetColor(JpanelBotonCompra);
+          resetColor(JpanelBotonProvedores);
+    }//GEN-LAST:event_jLabelIconoClienteMouseEntered
+
     void setColor(JPanel panel){
-        panel.setBackground(new Color(0,18,50));
+        panel.setBackground(new Color(0, 93, 166));
     }
     void resetColor(JPanel panel){
         panel.setBackground(new Color(32,57,90));
         
     }
-    
+     
     /**
      * @param args the command line arguments
       */
@@ -519,6 +634,8 @@ public class prinP extends javax.swing.JFrame {
         
      java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+               
+               
                 new prinP().setVisible(true);
             }
         });
@@ -534,7 +651,6 @@ public class prinP extends javax.swing.JFrame {
     private javax.swing.JButton jButtonMinimizar;
     private app.bolivia.swing.JCTextField jCTextField1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelCliente;
     private javax.swing.JLabel jLabelCompra;
