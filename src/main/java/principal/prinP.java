@@ -6,6 +6,7 @@
 package principal;
 
 
+import paneles.panelCompra;
 import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -67,7 +68,6 @@ public class prinP extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1000, 730));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanelUndercorated.setBackground(new java.awt.Color(0, 49, 105));
@@ -110,7 +110,12 @@ public class prinP extends javax.swing.JFrame {
                 jButtonCerrarMouseClicked(evt);
             }
         });
-        jPanelUndercorated.add(jButtonCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 0, 30, 30));
+        jButtonCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCerrarActionPerformed(evt);
+            }
+        });
+        jPanelUndercorated.add(jButtonCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 0, 30, 30));
 
         jButtonMinimizar.setBackground(new java.awt.Color(0, 49, 105));
         jButtonMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Minimizar.png"))); // NOI18N
@@ -122,15 +127,13 @@ public class prinP extends javax.swing.JFrame {
                 jButtonMinimizarMouseClicked(evt);
             }
         });
-        jPanelUndercorated.add(jButtonMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 0, 30, 30));
+        jPanelUndercorated.add(jButtonMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, 30, 30));
 
         getContentPane().add(jPanelUndercorated, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 30));
 
         pnlPrincipal.setBackground(new java.awt.Color(255, 255, 255));
-        pnlPrincipal.setAlignmentX(0.0F);
-        pnlPrincipal.setAlignmentY(0.0F);
         pnlPrincipal.setLayout(new java.awt.CardLayout());
-        getContentPane().add(pnlPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 890, 600));
+        getContentPane().add(pnlPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 940, 640));
 
         pnlMenu.setBackground(new java.awt.Color(0, 18, 50));
         pnlMenu.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 5, 0, 0, new java.awt.Color(239, 238, 244)));
@@ -513,7 +516,7 @@ public class prinP extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonMinimizarMouseClicked
 
     private void JpanelBotonInventarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonInventarioMouseEntered
-        setColor(JpanelBotonInventario);
+        setColorPress(JpanelBotonInventario);
        resetColor(JpanelBotonVentas);
         resetColor(JpanelBotonCompra);
          resetColor(JpanelBotonProvedores);
@@ -521,7 +524,7 @@ public class prinP extends javax.swing.JFrame {
     }//GEN-LAST:event_JpanelBotonInventarioMouseEntered
 
     private void JpanelBotonVentasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonVentasMouseEntered
-       setColor(JpanelBotonVentas);
+       setColorPress(JpanelBotonVentas);
        resetColor(JpanelBotonInventario);
         resetColor(JpanelBotonCompra);
          resetColor(JpanelBotonProvedores);
@@ -529,7 +532,7 @@ public class prinP extends javax.swing.JFrame {
     }//GEN-LAST:event_JpanelBotonVentasMouseEntered
 
     private void JpanelBotonCompraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonCompraMouseEntered
-        setColor(JpanelBotonCompra);
+        setColorPress(JpanelBotonCompra);
        resetColor(JpanelBotonVentas);
         resetColor(JpanelBotonInventario);
          resetColor(JpanelBotonProvedores);
@@ -537,7 +540,7 @@ public class prinP extends javax.swing.JFrame {
     }//GEN-LAST:event_JpanelBotonCompraMouseEntered
 
     private void JpanelBotonProvedoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonProvedoresMouseEntered
-      setColor(JpanelBotonProvedores);
+      setColorPress(JpanelBotonProvedores);
        resetColor(JpanelBotonVentas);
         resetColor(JpanelBotonInventario);
          resetColor(JpanelBotonCompra);
@@ -545,7 +548,7 @@ public class prinP extends javax.swing.JFrame {
     }//GEN-LAST:event_JpanelBotonProvedoresMouseEntered
 
     private void jPanelBontonClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelBontonClienteMouseEntered
-       setColor(jPanelBontonCliente);
+       setColorPress(jPanelBontonCliente);
        resetColor(JpanelBotonVentas);
         resetColor(JpanelBotonInventario);
          resetColor(JpanelBotonCompra);
@@ -553,7 +556,7 @@ public class prinP extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanelBontonClienteMouseEntered
 
     private void jLabelInventarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelInventarioMouseEntered
-        setColor(JpanelBotonInventario);
+        setColorPress(JpanelBotonInventario);
        resetColor(JpanelBotonVentas);
         resetColor(JpanelBotonCompra);
          resetColor(JpanelBotonProvedores);
@@ -561,7 +564,7 @@ public class prinP extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelInventarioMouseEntered
 
     private void jLabelIconoVentaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIconoVentaMouseEntered
-       setColor(JpanelBotonVentas);
+       setColorPress(JpanelBotonVentas);
        resetColor(JpanelBotonInventario);
         resetColor(JpanelBotonCompra);
          resetColor(JpanelBotonProvedores);
@@ -569,7 +572,7 @@ public class prinP extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelIconoVentaMouseEntered
 
     private void jLabelIcoCompraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIcoCompraMouseEntered
-      setColor(JpanelBotonCompra);
+      setColorPress(JpanelBotonCompra);
        resetColor(JpanelBotonVentas);
         resetColor(JpanelBotonInventario);
          resetColor(JpanelBotonProvedores);
@@ -577,7 +580,7 @@ public class prinP extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelIcoCompraMouseEntered
 
     private void jLabelIcoProveedoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIcoProveedoresMouseEntered
-      setColor(JpanelBotonProvedores);
+      setColorPress(JpanelBotonProvedores);
        resetColor(JpanelBotonVentas);
         resetColor(JpanelBotonInventario);
          resetColor(JpanelBotonCompra);
@@ -585,20 +588,27 @@ public class prinP extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelIcoProveedoresMouseEntered
 
     private void jLabelIconoClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIconoClienteMouseEntered
-         setColor(jPanelBontonCliente);
+         setColorPress(jPanelBontonCliente);
        resetColor(JpanelBotonVentas);
         resetColor(JpanelBotonInventario);
          resetColor(JpanelBotonCompra);
           resetColor(JpanelBotonProvedores);
     }//GEN-LAST:event_jLabelIconoClienteMouseEntered
 
+    private void jButtonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCerrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCerrarActionPerformed
+
     void setColor(JPanel panel){
         panel.setBackground(new Color(0, 93, 166));
     }
     void resetColor(JPanel panel){
-        panel.setBackground(new Color(32,57,90));
-        
+        panel.setBackground(new Color(32,57,90)); 
     }
+     void setColorPress(JPanel panel){
+        panel.setBackground(new Color(102, 114, 141));
+    }
+    
      
     /**
      * @param args the command line arguments
