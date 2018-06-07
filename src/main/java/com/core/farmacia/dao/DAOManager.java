@@ -12,7 +12,6 @@ package com.core.farmacia.dao;
 public interface DAOManager {
     
     DAOCompra comprar();
-    DAOVenta vender();
     DAORegistroCompra registrarCompra();
     DAORegistroVenta registrarVenta();
     DAOPersona crearPersona();
