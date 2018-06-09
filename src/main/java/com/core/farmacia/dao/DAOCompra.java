@@ -9,6 +9,6 @@ package com.core.farmacia.dao;
  *
  * @author nuevo
  */
-public interface DAOCompra {
+public interface DAOCompra{
     
 }

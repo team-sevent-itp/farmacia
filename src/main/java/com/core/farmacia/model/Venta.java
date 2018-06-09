@@ -10,6 +10,6 @@ package com.core.farmacia.model;
  * @author nuevo
  */
 public class Venta {
-
+    
 
 }
