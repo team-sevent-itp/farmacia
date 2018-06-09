@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author nuevo
  */
-public interface DAOGenrico<T, K> {
+public interface DAOGenerico<T, K> {
 
     void create() throws DAOException;
 
