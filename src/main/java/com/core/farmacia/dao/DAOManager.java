@@ -15,4 +15,5 @@ public interface DAOManager {
     DAORegistroCompra registrarCompra();
     DAORegistroVenta registrarVenta();
     DAOPersona crearPersona();
+    DAOVenta crearVenta();
 }
