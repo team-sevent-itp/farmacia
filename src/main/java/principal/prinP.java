@@ -1,7 +1,4 @@
-
 package principal;
-
-
 
 import java.awt.Color;
 import javax.swing.JFrame;
@@ -15,7 +12,6 @@ import paneles.panelInventario;
 
 import paneles.panelVenta;
 
-
 /**
  *
  * @author edin-
@@ -27,13 +23,14 @@ public class prinP extends javax.swing.JFrame {
      */
     int Xmouse;
     int Ymouse;
+
     public prinP() {
         initComponents();
-       // this.setExtendedState(MAXIMIZED_BOTH);
+        // this.setExtendedState(MAXIMIZED_BOTH);
         this.setLocationRelativeTo(this);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-        
-     //Animacion.Animacion.mover_izquierda(0, -110, 2, 2, pnlMenu);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        //Animacion.Animacion.mover_izquierda(0, -110, 2, 2, pnlMenu);
     }
 
     /**
@@ -344,24 +341,24 @@ public class prinP extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // new CambiaPanel(pnlMenu, new paneles.pnMenu());
-        
+
         int posicion = pnlMenu.getX();
-       // int posicionP=pnlPrincipal.getX();
-         //pnlMenu.setBounds(10, 59, 180, 520);
-         
+        // int posicionP=pnlPrincipal.getX();
+        //pnlMenu.setBounds(10, 59, 180, 520);
+
         if (posicion > -1) {
             Animacion.Animacion.mover_izquierda(0, -130, 2, 2, pnlMenu);
             Animacion.Animacion.mover_izquierda(190, 60, 2, 2, pnlPrincipal);
-           // pnlMenu.setBounds(10, 59, 60, 520);
-            
+            // pnlMenu.setBounds(10, 59, 60, 520);
+
         } else {
-          
+
             Animacion.Animacion.mover_derecha(-130, 0, 2, 2, pnlMenu);
             Animacion.Animacion.mover_derecha(60, 190, 2, 2, pnlPrincipal);
             // pnlMenu.setBounds(10, 59, 180, 520);
 
         }
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jCTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCTextField1ActionPerformed
@@ -369,86 +366,86 @@ public class prinP extends javax.swing.JFrame {
     }//GEN-LAST:event_jCTextField1ActionPerformed
 
     private void jPanelUndercoratedMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelUndercoratedMouseDragged
-       int  x = evt.getXOnScreen();
-       int y = evt.getYOnScreen();
-         this.setLocation(  x-Xmouse, y-Ymouse);
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - Xmouse, y - Ymouse);
     }//GEN-LAST:event_jPanelUndercoratedMouseDragged
 
-    
+
     private void jPanelUndercoratedMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelUndercoratedMousePressed
-      Xmouse= evt.getX();
-      Ymouse= evt.getY();
+        Xmouse = evt.getX();
+        Ymouse = evt.getY();
     }//GEN-LAST:event_jPanelUndercoratedMousePressed
 
     private void JpanelBotonInventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonInventarioMouseClicked
         new CambiaPanel(pnlPrincipal, new panelInventario());
         Animacion.Animacion.mover_izquierda(0, -130, 2, 2, pnlMenu);
-         Animacion.Animacion.mover_izquierda(190, 60, 2, 2, pnlPrincipal);
-         
+        Animacion.Animacion.mover_izquierda(190, 60, 2, 2, pnlPrincipal);
+
     }//GEN-LAST:event_JpanelBotonInventarioMouseClicked
 
     private void JpanelBotonVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonVentasMouseClicked
-         new CambiaPanel(pnlPrincipal, new panelVenta());
+        new CambiaPanel(pnlPrincipal, new panelVenta());
         Animacion.Animacion.mover_izquierda(0, -130, 2, 2, pnlMenu);
-         Animacion.Animacion.mover_izquierda(190, 60, 2, 2, pnlPrincipal);
+        Animacion.Animacion.mover_izquierda(190, 60, 2, 2, pnlPrincipal);
     }//GEN-LAST:event_JpanelBotonVentasMouseClicked
 
     private void JpanelBotonCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonCompraMouseClicked
-       // new CambiaPanel(pnlPrincipal, new panelCompra());
+        // new CambiaPanel(pnlPrincipal, new panelCompra());
         Animacion.Animacion.mover_izquierda(0, -130, 2, 2, pnlMenu);
-         Animacion.Animacion.mover_izquierda(190, 60, 2, 2, pnlPrincipal);
+        Animacion.Animacion.mover_izquierda(190, 60, 2, 2, pnlPrincipal);
     }//GEN-LAST:event_JpanelBotonCompraMouseClicked
 
     private void JpanelBotonProvedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonProvedoresMouseClicked
-         new CambiaPanel(pnlPrincipal, new panelProveedor());
+        new CambiaPanel(pnlPrincipal, new panelProveedor());
         Animacion.Animacion.mover_izquierda(0, -130, 2, 2, pnlMenu);
-         Animacion.Animacion.mover_izquierda(190, 60, 2, 2, pnlPrincipal);
+        Animacion.Animacion.mover_izquierda(190, 60, 2, 2, pnlPrincipal);
     }//GEN-LAST:event_JpanelBotonProvedoresMouseClicked
 
     private void jPanelBontonClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelBontonClienteMouseClicked
-         new CambiaPanel(pnlPrincipal, new panelCliente());
+        new CambiaPanel(pnlPrincipal, new panelCliente());
         Animacion.Animacion.mover_izquierda(0, -130, 2, 2, pnlMenu);
-         Animacion.Animacion.mover_izquierda(190, 60, 2, 2, pnlPrincipal);
+        Animacion.Animacion.mover_izquierda(190, 60, 2, 2, pnlPrincipal);
     }//GEN-LAST:event_jPanelBontonClienteMouseClicked
 
     private void JpanelBotonInventarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonInventarioMousePressed
-       setColor(JpanelBotonInventario);
-       resetColor(JpanelBotonVentas);
+        setColor(JpanelBotonInventario);
+        resetColor(JpanelBotonVentas);
         resetColor(JpanelBotonCompra);
-         resetColor(JpanelBotonProvedores);
-          resetColor(jPanelBontonCliente);
+        resetColor(JpanelBotonProvedores);
+        resetColor(jPanelBontonCliente);
     }//GEN-LAST:event_JpanelBotonInventarioMousePressed
 
     private void JpanelBotonVentasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonVentasMousePressed
         setColor(JpanelBotonVentas);
-       resetColor(JpanelBotonInventario);
+        resetColor(JpanelBotonInventario);
         resetColor(JpanelBotonCompra);
-         resetColor(JpanelBotonProvedores);
-          resetColor(jPanelBontonCliente);
+        resetColor(JpanelBotonProvedores);
+        resetColor(jPanelBontonCliente);
     }//GEN-LAST:event_JpanelBotonVentasMousePressed
 
     private void JpanelBotonCompraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonCompraMousePressed
         setColor(JpanelBotonCompra);
-       resetColor(JpanelBotonVentas);
+        resetColor(JpanelBotonVentas);
         resetColor(JpanelBotonInventario);
-         resetColor(JpanelBotonProvedores);
-          resetColor(jPanelBontonCliente);
+        resetColor(JpanelBotonProvedores);
+        resetColor(jPanelBontonCliente);
     }//GEN-LAST:event_JpanelBotonCompraMousePressed
 
     private void JpanelBotonProvedoresMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonProvedoresMousePressed
-         setColor(JpanelBotonProvedores);
-       resetColor(JpanelBotonVentas);
+        setColor(JpanelBotonProvedores);
+        resetColor(JpanelBotonVentas);
         resetColor(JpanelBotonInventario);
-         resetColor(JpanelBotonCompra);
-          resetColor(jPanelBontonCliente);
+        resetColor(JpanelBotonCompra);
+        resetColor(jPanelBontonCliente);
     }//GEN-LAST:event_JpanelBotonProvedoresMousePressed
 
     private void jPanelBontonClienteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelBontonClienteMousePressed
         setColor(jPanelBontonCliente);
-       resetColor(JpanelBotonVentas);
+        resetColor(JpanelBotonVentas);
         resetColor(JpanelBotonInventario);
-         resetColor(JpanelBotonCompra);
-          resetColor(JpanelBotonProvedores);
+        resetColor(JpanelBotonCompra);
+        resetColor(JpanelBotonProvedores);
     }//GEN-LAST:event_jPanelBontonClienteMousePressed
 
     private void jLabelInventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelInventarioMouseClicked
@@ -456,11 +453,11 @@ public class prinP extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelInventarioMouseClicked
 
     private void jLabelIconoVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIconoVentaMouseClicked
-       new CambiaPanel(pnlPrincipal, new panelVenta());
+        new CambiaPanel(pnlPrincipal, new panelVenta());
     }//GEN-LAST:event_jLabelIconoVentaMouseClicked
 
     private void jLabelIcoCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIcoCompraMouseClicked
-         new CambiaPanel(pnlPrincipal, new panelCompra());
+        new CambiaPanel(pnlPrincipal, new panelCompra());
     }//GEN-LAST:event_jLabelIcoCompraMouseClicked
 
     private void jLabelIcoProveedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIcoProveedoresMouseClicked
@@ -468,164 +465,158 @@ public class prinP extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelIcoProveedoresMouseClicked
 
     private void jLabelIconoClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIconoClienteMouseClicked
-          new CambiaPanel(pnlPrincipal, new panelCliente());
+        new CambiaPanel(pnlPrincipal, new panelCliente());
     }//GEN-LAST:event_jLabelIconoClienteMouseClicked
 
     private void jLabelInventarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelInventarioMousePressed
-       setColor(JpanelBotonInventario);
-       resetColor(JpanelBotonVentas);
+        setColor(JpanelBotonInventario);
+        resetColor(JpanelBotonVentas);
         resetColor(JpanelBotonCompra);
-         resetColor(JpanelBotonProvedores);
-          resetColor(jPanelBontonCliente);
+        resetColor(JpanelBotonProvedores);
+        resetColor(jPanelBontonCliente);
     }//GEN-LAST:event_jLabelInventarioMousePressed
 
     private void jLabelIconoVentaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIconoVentaMousePressed
-       setColor(JpanelBotonVentas);
-       resetColor(JpanelBotonInventario);
+        setColor(JpanelBotonVentas);
+        resetColor(JpanelBotonInventario);
         resetColor(JpanelBotonCompra);
-         resetColor(JpanelBotonProvedores);
-          resetColor(jPanelBontonCliente);
+        resetColor(JpanelBotonProvedores);
+        resetColor(jPanelBontonCliente);
     }//GEN-LAST:event_jLabelIconoVentaMousePressed
 
     private void jLabelIcoCompraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIcoCompraMousePressed
-       setColor(JpanelBotonCompra);
-       resetColor(JpanelBotonVentas);
+        setColor(JpanelBotonCompra);
+        resetColor(JpanelBotonVentas);
         resetColor(JpanelBotonInventario);
-         resetColor(JpanelBotonProvedores);
-          resetColor(jPanelBontonCliente);
+        resetColor(JpanelBotonProvedores);
+        resetColor(jPanelBontonCliente);
     }//GEN-LAST:event_jLabelIcoCompraMousePressed
 
     private void jLabelIcoProveedoresMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIcoProveedoresMousePressed
-         setColor(JpanelBotonProvedores);
-       resetColor(JpanelBotonVentas);
+        setColor(JpanelBotonProvedores);
+        resetColor(JpanelBotonVentas);
         resetColor(JpanelBotonInventario);
-         resetColor(JpanelBotonCompra);
-          resetColor(jPanelBontonCliente);
+        resetColor(JpanelBotonCompra);
+        resetColor(jPanelBontonCliente);
     }//GEN-LAST:event_jLabelIcoProveedoresMousePressed
 
     private void jLabelIconoClienteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIconoClienteMousePressed
-         setColor(jPanelBontonCliente);
-       resetColor(JpanelBotonVentas);
+        setColor(jPanelBontonCliente);
+        resetColor(JpanelBotonVentas);
         resetColor(JpanelBotonInventario);
-         resetColor(JpanelBotonCompra);
-          resetColor(JpanelBotonProvedores);
+        resetColor(JpanelBotonCompra);
+        resetColor(JpanelBotonProvedores);
     }//GEN-LAST:event_jLabelIconoClienteMousePressed
 
     private void jButtonCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCerrarMouseClicked
-      System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_jButtonCerrarMouseClicked
 
     private void jButtonMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonMinimizarMouseClicked
-       this.setState(JFrame.ICONIFIED);
+        this.setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_jButtonMinimizarMouseClicked
 
     private void JpanelBotonInventarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonInventarioMouseEntered
         setColorPress(JpanelBotonInventario);
-       resetColor(JpanelBotonVentas);
+        resetColor(JpanelBotonVentas);
         resetColor(JpanelBotonCompra);
-         resetColor(JpanelBotonProvedores);
-          resetColor(jPanelBontonCliente);
+        resetColor(JpanelBotonProvedores);
+        resetColor(jPanelBontonCliente);
     }//GEN-LAST:event_JpanelBotonInventarioMouseEntered
 
     private void JpanelBotonVentasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonVentasMouseEntered
-       setColorPress(JpanelBotonVentas);
-       resetColor(JpanelBotonInventario);
+        setColorPress(JpanelBotonVentas);
+        resetColor(JpanelBotonInventario);
         resetColor(JpanelBotonCompra);
-         resetColor(JpanelBotonProvedores);
-          resetColor(jPanelBontonCliente);
+        resetColor(JpanelBotonProvedores);
+        resetColor(jPanelBontonCliente);
     }//GEN-LAST:event_JpanelBotonVentasMouseEntered
 
     private void JpanelBotonCompraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonCompraMouseEntered
         setColorPress(JpanelBotonCompra);
-       resetColor(JpanelBotonVentas);
+        resetColor(JpanelBotonVentas);
         resetColor(JpanelBotonInventario);
-         resetColor(JpanelBotonProvedores);
-          resetColor(jPanelBontonCliente);
+        resetColor(JpanelBotonProvedores);
+        resetColor(jPanelBontonCliente);
     }//GEN-LAST:event_JpanelBotonCompraMouseEntered
 
     private void JpanelBotonProvedoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonProvedoresMouseEntered
-      setColorPress(JpanelBotonProvedores);
-       resetColor(JpanelBotonVentas);
+        setColorPress(JpanelBotonProvedores);
+        resetColor(JpanelBotonVentas);
         resetColor(JpanelBotonInventario);
-         resetColor(JpanelBotonCompra);
-          resetColor(jPanelBontonCliente);
+        resetColor(JpanelBotonCompra);
+        resetColor(jPanelBontonCliente);
     }//GEN-LAST:event_JpanelBotonProvedoresMouseEntered
 
     private void jPanelBontonClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelBontonClienteMouseEntered
-       setColorPress(jPanelBontonCliente);
-       resetColor(JpanelBotonVentas);
+        setColorPress(jPanelBontonCliente);
+        resetColor(JpanelBotonVentas);
         resetColor(JpanelBotonInventario);
-         resetColor(JpanelBotonCompra);
-          resetColor(JpanelBotonProvedores);
+        resetColor(JpanelBotonCompra);
+        resetColor(JpanelBotonProvedores);
     }//GEN-LAST:event_jPanelBontonClienteMouseEntered
 
     private void jLabelInventarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelInventarioMouseEntered
         setColorPress(JpanelBotonInventario);
-       resetColor(JpanelBotonVentas);
+        resetColor(JpanelBotonVentas);
         resetColor(JpanelBotonCompra);
-         resetColor(JpanelBotonProvedores);
-          resetColor(jPanelBontonCliente);
+        resetColor(JpanelBotonProvedores);
+        resetColor(jPanelBontonCliente);
     }//GEN-LAST:event_jLabelInventarioMouseEntered
 
     private void jLabelIconoVentaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIconoVentaMouseEntered
-       setColorPress(JpanelBotonVentas);
-       resetColor(JpanelBotonInventario);
+        setColorPress(JpanelBotonVentas);
+        resetColor(JpanelBotonInventario);
         resetColor(JpanelBotonCompra);
-         resetColor(JpanelBotonProvedores);
-          resetColor(jPanelBontonCliente);
+        resetColor(JpanelBotonProvedores);
+        resetColor(jPanelBontonCliente);
     }//GEN-LAST:event_jLabelIconoVentaMouseEntered
 
     private void jLabelIcoCompraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIcoCompraMouseEntered
-      setColorPress(JpanelBotonCompra);
-       resetColor(JpanelBotonVentas);
+        setColorPress(JpanelBotonCompra);
+        resetColor(JpanelBotonVentas);
         resetColor(JpanelBotonInventario);
-         resetColor(JpanelBotonProvedores);
-          resetColor(jPanelBontonCliente);
+        resetColor(JpanelBotonProvedores);
+        resetColor(jPanelBontonCliente);
     }//GEN-LAST:event_jLabelIcoCompraMouseEntered
 
     private void jLabelIcoProveedoresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIcoProveedoresMouseEntered
-      setColorPress(JpanelBotonProvedores);
-       resetColor(JpanelBotonVentas);
+        setColorPress(JpanelBotonProvedores);
+        resetColor(JpanelBotonVentas);
         resetColor(JpanelBotonInventario);
-         resetColor(JpanelBotonCompra);
-          resetColor(jPanelBontonCliente);
+        resetColor(JpanelBotonCompra);
+        resetColor(jPanelBontonCliente);
     }//GEN-LAST:event_jLabelIcoProveedoresMouseEntered
 
     private void jLabelIconoClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIconoClienteMouseEntered
-         setColorPress(jPanelBontonCliente);
-       resetColor(JpanelBotonVentas);
+        setColorPress(jPanelBontonCliente);
+        resetColor(JpanelBotonVentas);
         resetColor(JpanelBotonInventario);
-         resetColor(JpanelBotonCompra);
-          resetColor(JpanelBotonProvedores);
+        resetColor(JpanelBotonCompra);
+        resetColor(JpanelBotonProvedores);
     }//GEN-LAST:event_jLabelIconoClienteMouseEntered
 
     private void jButtonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCerrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonCerrarActionPerformed
 
-    void setColor(JPanel panel){
+    void setColor(JPanel panel) {
         panel.setBackground(new Color(0, 93, 166));
     }
-    void resetColor(JPanel panel){
-        panel.setBackground(new Color(32,57,90)); 
+
+    void resetColor(JPanel panel) {
+        panel.setBackground(new Color(32, 57, 90));
     }
-     void setColorPress(JPanel panel){
+
+    void setColorPress(JPanel panel) {
         panel.setBackground(new Color(102, 114, 141));
     }
-    
-     
+
     /**
      * @param args the command line arguments
-      */
+     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-    
-    //quitar
-     
+        /*     
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -642,19 +633,17 @@ public class prinP extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(prinP.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
+    
+         */
 
-        
-     java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               
-               
+
                 new prinP().setVisible(true);
             }
         });
-    }   
- 
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JpanelBotonCompra;
     private javax.swing.JPanel JpanelBotonInventario;
