@@ -78,7 +78,7 @@ public class panelCliente extends javax.swing.JPanel {
         jButtonNuevo.setContentAreaFilled(false);
         jButtonNuevo.setFocusPainted(false);
         jButtonNuevo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButtonNuevo.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Nuevo2 .png"))); // NOI18N
+        jButtonNuevo.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cerrarNE.png"))); // NOI18N
         jButtonNuevo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButtonNuevo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
