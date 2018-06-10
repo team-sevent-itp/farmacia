@@ -7,7 +7,9 @@ package com.core.farmacia.mysql;
 
 import com.core.farmacia.dao.DAOException;
 import com.core.farmacia.dao.DAOLaboratorio;
+import com.core.farmacia.dao.DAOManager;
 import com.core.farmacia.model.Laboratorio;
+import java.sql.Connection;
 import java.util.List;
 
 /**
@@ -16,6 +18,12 @@ import java.util.List;
  */
 public class LaboratorioMysqlDaoImpl implements DAOLaboratorio{
 
+    Connection conn;
+    
+    public LaboratorioMysqlDaoImpl(Connection conn ){
+        this.conn = conn;
+    }
+    
     @Override
     public void ingresar(Laboratorio o) throws DAOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

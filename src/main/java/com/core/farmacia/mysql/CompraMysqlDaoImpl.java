@@ -7,7 +7,9 @@ package com.core.farmacia.mysql;
 
 import com.core.farmacia.dao.DAOCompra;
 import com.core.farmacia.dao.DAOException;
+import com.core.farmacia.dao.DAOManager;
 import com.core.farmacia.model.Compra;
+import java.sql.Connection;
 import java.util.List;
 
 /**
@@ -16,6 +18,14 @@ import java.util.List;
  */
 public class CompraMysqlDaoImpl implements DAOCompra{
 
+    Connection conn;
+    DAOManager manager;
+    
+    public CompraMysqlDaoImpl(Connection conn, DAOManager manager) {
+        this.conn = conn;
+        this.manager = manager;
+    }
+    
     @Override
     public void ingresar(Compra o) throws DAOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

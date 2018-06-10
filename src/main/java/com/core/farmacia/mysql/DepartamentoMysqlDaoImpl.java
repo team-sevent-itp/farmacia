@@ -5,9 +5,9 @@
  */
 package com.core.farmacia.mysql;
 
+import com.core.farmacia.dao.DAODepartamento;
 import com.core.farmacia.dao.DAOException;
-import com.core.farmacia.dao.DAOLineaProducto;
-import com.core.farmacia.model.LineaProducto;
+import com.core.farmacia.model.Departamento;
 import java.sql.Connection;
 import java.util.List;
 
@@ -15,38 +15,36 @@ import java.util.List;
  *
  * @author nuevo
  */
-public class LineaProductoMysqlDaoImpl implements DAOLineaProducto{
-    
+public class DepartamentoMysqlDaoImpl implements DAODepartamento{
+
     Connection conn;
 
-    public LineaProductoMysqlDaoImpl(Connection conn) {
+    public DepartamentoMysqlDaoImpl(Connection conn) {
         this.conn = conn;
-    }
-    
-    
+    }    
     
     @Override
-    public void ingresar(LineaProducto o) throws DAOException {
+    public void ingresar(Departamento o) throws DAOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void actualizar(LineaProducto o) throws DAOException {
+    public void actualizar(Departamento o) throws DAOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void eliminar(LineaProducto o) throws DAOException {
+    public void eliminar(Departamento o) throws DAOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<LineaProducto> getAll() throws DAOException {
+    public List<Departamento> getAll() throws DAOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public LineaProducto getOne(Long o) throws DAOException {
+    public Departamento getOne(Long o) throws DAOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

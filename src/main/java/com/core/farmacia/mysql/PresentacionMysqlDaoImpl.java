@@ -8,6 +8,7 @@ package com.core.farmacia.mysql;
 import com.core.farmacia.dao.DAOException;
 import com.core.farmacia.dao.DAOPresentacion;
 import com.core.farmacia.model.Presentacion;
+import java.sql.Connection;
 import java.util.List;
 
 /**
@@ -15,7 +16,14 @@ import java.util.List;
  * @author nuevo
  */
 public class PresentacionMysqlDaoImpl implements DAOPresentacion{
+    
+    Connection conn;
 
+    public PresentacionMysqlDaoImpl(Connection conn) {
+        this.conn = conn;
+    }    
+    
+    
     @Override
     public void ingresar(Presentacion o) throws DAOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

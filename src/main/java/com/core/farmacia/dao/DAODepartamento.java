@@ -5,10 +5,12 @@
  */
 package com.core.farmacia.dao;
 
+import com.core.farmacia.model.Departamento;
+
 /**
  *
  * @author nuevo
  */
-public interface DAODepartamento {
+public interface DAODepartamento extends DAOGenerico<Departamento, Long>{
     
 }

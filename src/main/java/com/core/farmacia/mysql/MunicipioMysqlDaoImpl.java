@@ -6,8 +6,9 @@
 package com.core.farmacia.mysql;
 
 import com.core.farmacia.dao.DAOException;
-import com.core.farmacia.dao.DAOLineaProducto;
-import com.core.farmacia.model.LineaProducto;
+import com.core.farmacia.dao.DAOManager;
+import com.core.farmacia.dao.DAOMunicipio;
+import com.core.farmacia.model.Municipio;
 import java.sql.Connection;
 import java.util.List;
 
@@ -15,38 +16,39 @@ import java.util.List;
  *
  * @author nuevo
  */
-public class LineaProductoMysqlDaoImpl implements DAOLineaProducto{
-    
+public class MunicipioMysqlDaoImpl implements DAOMunicipio{
+
     Connection conn;
+    DAOManager manager;
 
-    public LineaProductoMysqlDaoImpl(Connection conn) {
+    public MunicipioMysqlDaoImpl(Connection conn, DAOManager manager) {
         this.conn = conn;
-    }
+        this.manager = manager;
+    }    
     
     
-    
     @Override
-    public void ingresar(LineaProducto o) throws DAOException {
+    public void ingresar(Municipio o) throws DAOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void actualizar(LineaProducto o) throws DAOException {
+    public void actualizar(Municipio o) throws DAOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void eliminar(LineaProducto o) throws DAOException {
+    public void eliminar(Municipio o) throws DAOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<LineaProducto> getAll() throws DAOException {
+    public List<Municipio> getAll() throws DAOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public LineaProducto getOne(Long o) throws DAOException {
+    public Municipio getOne(Long o) throws DAOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
