@@ -9,6 +9,7 @@ import com.core.farmacia.dao.DAOException;
 import com.core.farmacia.dao.DAOLineaProducto;
 import com.core.farmacia.model.LineaProducto;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.List;
 
 /**
@@ -33,7 +34,7 @@ public class LineaProductoMysqlDaoImpl implements DAOLineaProducto{
     
     @Override
     public void ingresar(LineaProducto o) throws DAOException {
-        
+       PreparedStatement ps;
     }
 
     @Override
