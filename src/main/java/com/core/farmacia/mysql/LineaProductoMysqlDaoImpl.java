@@ -17,6 +17,12 @@ import java.util.List;
  */
 public class LineaProductoMysqlDaoImpl implements DAOLineaProducto{
     
+    private String INSERT = "INSERT INTO linea_producto(nombre) VALUES(?)";
+    private String DELETE = "DELETE FROM linea_producto WHERE id = ?";
+    private String UPDATE = "UPDATE linea_producto SET nombre = ? WHERE id = ?";
+    private String GETALL = "SELECT id, nombre FROM linea_producto";
+    private String GETONE = "SELECT id, nombre FROM linea_producto WHERE id = ?";    
+    
     Connection conn;
 
     public LineaProductoMysqlDaoImpl(Connection conn) {
@@ -27,7 +33,7 @@ public class LineaProductoMysqlDaoImpl implements DAOLineaProducto{
     
     @Override
     public void ingresar(LineaProducto o) throws DAOException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
