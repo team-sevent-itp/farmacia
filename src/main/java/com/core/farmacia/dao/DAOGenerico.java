@@ -11,16 +11,16 @@ import java.util.List;
  *
  * @author nuevo
  */
-public interface DAOGenerico<T, K> {
+public interface DAOGenerico<T,K> {
 
-    void create() throws DAOException;
-
-    T readOne(K id) throws DAOException;
-
-    void update(T Objeto) throws DAOException;
+    void ingresar(T o) throws DAOException;
     
-    void delete(K id) throws DAOException;
+    void actualizar(T o) throws DAOException;
     
-    List<T> readAll() throws DAOException;
+    void eliminar(T o) throws DAOException;
+    
+    List<T> getAll() throws DAOException; 
+    
+    T getOne(K o) throws DAOException;
     
 }
