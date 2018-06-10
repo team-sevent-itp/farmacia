@@ -71,14 +71,14 @@ public class panelCliente extends javax.swing.JPanel {
 
         jButtonNuevo.setBackground(new java.awt.Color(0, 18, 50));
         jButtonNuevo.setForeground(new java.awt.Color(153, 0, 153));
-        jButtonNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgpanel/icons8_Add_New_azul (1).png"))); // NOI18N
+        jButtonNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Nuevo1.png"))); // NOI18N
         jButtonNuevo.setText("Nuevo");
         jButtonNuevo.setBorder(null);
         jButtonNuevo.setBorderPainted(false);
         jButtonNuevo.setContentAreaFilled(false);
         jButtonNuevo.setFocusPainted(false);
         jButtonNuevo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButtonNuevo.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imgpanel/icons8_Add_New_azul (2).png"))); // NOI18N
+        jButtonNuevo.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Nuevo2 .png"))); // NOI18N
         jButtonNuevo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButtonNuevo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -93,38 +93,42 @@ public class panelCliente extends javax.swing.JPanel {
         jToolBar1.add(jButtonNuevo);
         jToolBar1.add(jSeparator1);
 
-        jButtonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgpanel/icons8_Edit_azul.png"))); // NOI18N
+        jButtonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8editar1.png"))); // NOI18N
         jButtonEditar.setText("Editar");
         jButtonEditar.setBorderPainted(false);
         jButtonEditar.setContentAreaFilled(false);
         jButtonEditar.setFocusable(false);
         jButtonEditar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButtonEditar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/imgpanel/icons8_Edit_blanco.png"))); // NOI18N
+        jButtonEditar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Edit2.png"))); // NOI18N
+        jButtonEditar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Edit2.png"))); // NOI18N
         jButtonEditar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jButtonEditar);
 
-        jButtonBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgpanel/icons8_Close_Window_48px.png"))); // NOI18N
+        jButtonBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Close1.png"))); // NOI18N
         jButtonBorrar.setText("Borrar");
         jButtonBorrar.setBorderPainted(false);
         jButtonBorrar.setFocusable(false);
         jButtonBorrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonBorrar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Close2.png"))); // NOI18N
         jButtonBorrar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jButtonBorrar);
         jToolBar1.add(jSeparator2);
 
-        jButtonGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgpanel/icons8_Save_All_48px.png"))); // NOI18N
+        jButtonGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Save1.png"))); // NOI18N
         jButtonGuardar.setText("Guardar");
         jButtonGuardar.setBorderPainted(false);
         jButtonGuardar.setFocusable(false);
         jButtonGuardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonGuardar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Save2.png"))); // NOI18N
         jButtonGuardar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jButtonGuardar);
 
-        jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgpanel/icons8_Unavailable_48px.png"))); // NOI18N
+        jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Cancelar1.png"))); // NOI18N
         jButtonCancelar.setText("Cancelar");
         jButtonCancelar.setBorderPainted(false);
         jButtonCancelar.setFocusable(false);
         jButtonCancelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonCancelar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Cancelar2.png"))); // NOI18N
         jButtonCancelar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jButtonCancelar);
 
