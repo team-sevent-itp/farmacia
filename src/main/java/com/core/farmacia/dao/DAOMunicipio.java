@@ -5,12 +5,12 @@
  */
 package com.core.farmacia.dao;
 
-import com.core.farmacia.model.Compra;
+import com.core.farmacia.model.Municipio;
 
 /**
  *
  * @author nuevo
  */
-public interface DAOCompra extends DAOGenerico<Compra, Long>{
+public interface DAOMunicipio extends DAOGenerico<Municipio, Long>{
     
 }
