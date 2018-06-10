@@ -1,16 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package principal;
 
 
-import paneles.panelCompra;
+
 import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import paneles.*;
+
+import com.core.farmacia.panel.cliente.panelCliente;
+import com.core.farmacia.panel.compra.panelCompra;
+import com.core.farmacia.panel.proveedor.panelProveedor;
+import paneles.CambiaPanel;
+import paneles.panelInventario;
+
+import paneles.panelVenta;
+
 
 /**
  *
@@ -115,7 +119,7 @@ public class prinP extends javax.swing.JFrame {
                 jButtonCerrarActionPerformed(evt);
             }
         });
-        jPanelUndercorated.add(jButtonCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 0, 30, 30));
+        jPanelUndercorated.add(jButtonCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 0, 30, 30));
 
         jButtonMinimizar.setBackground(new java.awt.Color(0, 49, 105));
         jButtonMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Minimizar.png"))); // NOI18N
@@ -127,13 +131,13 @@ public class prinP extends javax.swing.JFrame {
                 jButtonMinimizarMouseClicked(evt);
             }
         });
-        jPanelUndercorated.add(jButtonMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, 30, 30));
+        jPanelUndercorated.add(jButtonMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 0, 30, 30));
 
-        getContentPane().add(jPanelUndercorated, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 30));
+        getContentPane().add(jPanelUndercorated, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, 30));
 
         pnlPrincipal.setBackground(new java.awt.Color(255, 255, 255));
-        pnlPrincipal.setLayout(new java.awt.CardLayout());
-        getContentPane().add(pnlPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 940, 640));
+        pnlPrincipal.setLayout(new java.awt.BorderLayout());
+        getContentPane().add(pnlPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, 1060, 610));
 
         pnlMenu.setBackground(new java.awt.Color(0, 18, 50));
         pnlMenu.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 5, 0, 0, new java.awt.Color(239, 238, 244)));
@@ -390,7 +394,7 @@ public class prinP extends javax.swing.JFrame {
     }//GEN-LAST:event_JpanelBotonVentasMouseClicked
 
     private void JpanelBotonCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpanelBotonCompraMouseClicked
-        new CambiaPanel(pnlPrincipal, new panelCompra());
+       // new CambiaPanel(pnlPrincipal, new panelCompra());
         Animacion.Animacion.mover_izquierda(0, -130, 2, 2, pnlMenu);
          Animacion.Animacion.mover_izquierda(190, 60, 2, 2, pnlPrincipal);
     }//GEN-LAST:event_JpanelBotonCompraMouseClicked
