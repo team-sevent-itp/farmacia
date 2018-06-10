@@ -19,19 +19,19 @@ public class RegistroVenta {
 
     public class IdRegistroVenta {
 
-        private long idVenta;
-        private long idProducto;
+        private Venta idVenta;
+        private Producto idProducto;
 
         public IdRegistroVenta() {
-            this.idVenta = 0L;
-            this.idProducto = 0L;
+            this.idVenta = null;
+            this.idProducto = null;
         }
 
         @Override
         public int hashCode() {
             int hash = 3;
-            hash = 23 * hash + (int) (this.idVenta ^ (this.idVenta >>> 32));
-            hash = 23 * hash + (int) (this.idProducto ^ (this.idProducto >>> 32));
+            hash = 73 * hash + Objects.hashCode(this.idVenta);
+            hash = 73 * hash + Objects.hashCode(this.idProducto);
             return hash;
         }
 
@@ -47,28 +47,28 @@ public class RegistroVenta {
                 return false;
             }
             final IdRegistroVenta other = (IdRegistroVenta) obj;
-            if (this.idVenta != other.idVenta) {
+            if (!Objects.equals(this.idVenta, other.idVenta)) {
                 return false;
             }
-            if (this.idProducto != other.idProducto) {
+            if (!Objects.equals(this.idProducto, other.idProducto)) {
                 return false;
             }
             return true;
         }
 
-        public long getIdVenta() {
+        public Venta getIdVenta() {
             return idVenta;
         }
 
-        public void setIdVenta(long idVenta) {
+        public void setIdVenta(Venta idVenta) {
             this.idVenta = idVenta;
         }
 
-        public long getIdProducto() {
+        public Producto getIdProducto() {
             return idProducto;
         }
 
-        public void setIdProducto(long idProducto) {
+        public void setIdProducto(Producto idProducto) {
             this.idProducto = idProducto;
         }
 
@@ -147,6 +147,5 @@ public class RegistroVenta {
     public String toString() {
         return "RegistroVenta{" + "id=" + id + ", cantidad=" + cantidad + ", total=" + total + '}';
     }
-    
-    
+
 }

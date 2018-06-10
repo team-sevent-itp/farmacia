@@ -16,12 +16,12 @@ import java.util.Objects;
 public class Compra {
 
     private long id;
-    private long idProveedor;
+    private Proveedor idProveedor;
     private String NroFactura;
     private LocalDate fecha;
     private LocalTime hora;
 
-    public Compra(long id, long idProveedor, String NroFactura, LocalDate fecha, LocalTime hora) {
+    public Compra(long id, Proveedor idProveedor, String NroFactura, LocalDate fecha, LocalTime hora) {
         this.id = id;
         this.idProveedor = idProveedor;
         this.NroFactura = NroFactura;
@@ -31,20 +31,20 @@ public class Compra {
 
     public Compra() {
         this.id = 0L;
-        this.idProveedor = 0L;
-        this.fecha = null;
+        this.idProveedor = null;
         this.NroFactura = "";
+        this.fecha = null;
         this.hora = null;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 71 * hash + (int) (this.id ^ (this.id >>> 32));
-        hash = 71 * hash + (int) (this.idProveedor ^ (this.idProveedor >>> 32));
-        hash = 71 * hash + Objects.hashCode(this.NroFactura);
-        hash = 71 * hash + Objects.hashCode(this.fecha);
-        hash = 71 * hash + Objects.hashCode(this.hora);
+        int hash = 3;
+        hash = 47 * hash + (int) (this.id ^ (this.id >>> 32));
+        hash = 47 * hash + Objects.hashCode(this.idProveedor);
+        hash = 47 * hash + Objects.hashCode(this.NroFactura);
+        hash = 47 * hash + Objects.hashCode(this.fecha);
+        hash = 47 * hash + Objects.hashCode(this.hora);
         return hash;
     }
 
@@ -63,10 +63,10 @@ public class Compra {
         if (this.id != other.id) {
             return false;
         }
-        if (this.idProveedor != other.idProveedor) {
+        if (!Objects.equals(this.NroFactura, other.NroFactura)) {
             return false;
         }
-        if (!Objects.equals(this.NroFactura, other.NroFactura)) {
+        if (!Objects.equals(this.idProveedor, other.idProveedor)) {
             return false;
         }
         if (!Objects.equals(this.fecha, other.fecha)) {
@@ -86,11 +86,11 @@ public class Compra {
         this.id = id;
     }
 
-    public long getIdProveedor() {
+    public Proveedor getIdProveedor() {
         return idProveedor;
     }
 
-    public void setIdProveedor(long idProveedor) {
+    public void setIdProveedor(Proveedor idProveedor) {
         this.idProveedor = idProveedor;
     }
 
@@ -120,9 +120,7 @@ public class Compra {
 
     @Override
     public String toString() {
-        return "Compra{" + "id=" + id + ", idProveedor=" + idProveedor + ", NroFactura=" + NroFactura + ", fecha=" + fecha + ", hora=" + hora + '}';
+        return "Compra{" + "id=" + id + ", idProveedor=" + idProveedor + ", NroFactura="
+                + NroFactura + ", fecha=" + fecha + ", hora=" + hora + '}';
     }
-    
-    
-
 }
