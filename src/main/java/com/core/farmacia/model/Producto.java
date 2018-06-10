@@ -19,14 +19,14 @@ public class Producto {
     private double iva;
     private double precio;
     private double margenDeGanancia;
-    private long idPresentacion;
-    private long idLaboratorio;
+    private Presentacion idPresentacion;
+    private Laboratorio idLaboratorio;
     private String invima;
-    private long idLineaProducto;
+    private LineaProducto idLineaProducto;
 
-    public Producto(long id, String nombre, long cantidad, double iva,
-            double precio, double margenDeGanancia, long idPresentacion,
-            long idLaboratorio, String invima, long idLineaProducto) {
+    public Producto(long id, String nombre, long cantidad, double iva, double precio,
+            double margenDeGanancia, Presentacion idPresentacion, Laboratorio idLaboratorio,
+            String invima, LineaProducto idLineaProducto) {
         this.id = id;
         this.nombre = nombre;
         this.cantidad = cantidad;
@@ -46,25 +46,25 @@ public class Producto {
         this.iva = 0D;
         this.precio = 0D;
         this.margenDeGanancia = 0D;
-        this.idPresentacion = 0L;
-        this.idLaboratorio = 0L;
+        this.idPresentacion = null;
+        this.idLaboratorio = null;
         this.invima = "";
-        this.idLineaProducto = 0L;
+        this.idLineaProducto = null;
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 19 * hash + (int) (this.id ^ (this.id >>> 32));
-        hash = 19 * hash + Objects.hashCode(this.nombre);
-        hash = 19 * hash + (int) (this.cantidad ^ (this.cantidad >>> 32));
-        hash = 19 * hash + (int) (Double.doubleToLongBits(this.iva) ^ (Double.doubleToLongBits(this.iva) >>> 32));
-        hash = 19 * hash + (int) (Double.doubleToLongBits(this.precio) ^ (Double.doubleToLongBits(this.precio) >>> 32));
-        hash = 19 * hash + (int) (Double.doubleToLongBits(this.margenDeGanancia) ^ (Double.doubleToLongBits(this.margenDeGanancia) >>> 32));
-        hash = 19 * hash + (int) (this.idPresentacion ^ (this.idPresentacion >>> 32));
-        hash = 19 * hash + (int) (this.idLaboratorio ^ (this.idLaboratorio >>> 32));
-        hash = 19 * hash + Objects.hashCode(this.invima);
-        hash = 19 * hash + (int) (this.idLineaProducto ^ (this.idLineaProducto >>> 32));
+        hash = 83 * hash + (int) (this.id ^ (this.id >>> 32));
+        hash = 83 * hash + Objects.hashCode(this.nombre);
+        hash = 83 * hash + (int) (this.cantidad ^ (this.cantidad >>> 32));
+        hash = 83 * hash + (int) (Double.doubleToLongBits(this.iva) ^ (Double.doubleToLongBits(this.iva) >>> 32));
+        hash = 83 * hash + (int) (Double.doubleToLongBits(this.precio) ^ (Double.doubleToLongBits(this.precio) >>> 32));
+        hash = 83 * hash + (int) (Double.doubleToLongBits(this.margenDeGanancia) ^ (Double.doubleToLongBits(this.margenDeGanancia) >>> 32));
+        hash = 83 * hash + Objects.hashCode(this.idPresentacion);
+        hash = 83 * hash + Objects.hashCode(this.idLaboratorio);
+        hash = 83 * hash + Objects.hashCode(this.invima);
+        hash = 83 * hash + Objects.hashCode(this.idLineaProducto);
         return hash;
     }
 
@@ -95,23 +95,22 @@ public class Producto {
         if (Double.doubleToLongBits(this.margenDeGanancia) != Double.doubleToLongBits(other.margenDeGanancia)) {
             return false;
         }
-        if (this.idPresentacion != other.idPresentacion) {
-            return false;
-        }
-        if (this.idLaboratorio != other.idLaboratorio) {
-            return false;
-        }
-        if (this.idLineaProducto != other.idLineaProducto) {
-            return false;
-        }
         if (!Objects.equals(this.nombre, other.nombre)) {
             return false;
         }
         if (!Objects.equals(this.invima, other.invima)) {
             return false;
         }
+        if (!Objects.equals(this.idPresentacion, other.idPresentacion)) {
+            return false;
+        }
+        if (!Objects.equals(this.idLaboratorio, other.idLaboratorio)) {
+            return false;
+        }
+        if (!Objects.equals(this.idLineaProducto, other.idLineaProducto)) {
+            return false;
+        }
         return true;
-
     }
 
     public long getId() {
@@ -162,19 +161,19 @@ public class Producto {
         this.margenDeGanancia = margenDeGanancia;
     }
 
-    public long getIdPresentacion() {
+    public Presentacion getIdPresentacion() {
         return idPresentacion;
     }
 
-    public void setIdPresentacion(long idPresentacion) {
+    public void setIdPresentacion(Presentacion idPresentacion) {
         this.idPresentacion = idPresentacion;
     }
 
-    public long getIdLaboratorio() {
+    public Laboratorio getIdLaboratorio() {
         return idLaboratorio;
     }
 
-    public void setIdLaboratorio(long idLaboratorio) {
+    public void setIdLaboratorio(Laboratorio idLaboratorio) {
         this.idLaboratorio = idLaboratorio;
     }
 
@@ -186,21 +185,20 @@ public class Producto {
         this.invima = invima;
     }
 
-    public long getIdLineaProducto() {
+    public LineaProducto getIdLineaProducto() {
         return idLineaProducto;
     }
 
-    public void setIdLineaProducto(long idLineaProducto) {
+    public void setIdLineaProducto(LineaProducto idLineaProducto) {
         this.idLineaProducto = idLineaProducto;
     }
 
     @Override
     public String toString() {
-        return "Producto{" + "id=" + id + ", nombre=" + nombre + ", cantidad=" + cantidad 
-                           + ", iva=" + iva + ", precio=" + precio + ", margenDeGanancia="
-                           + margenDeGanancia + ", idPresentacion=" + idPresentacion 
-                           + ", idLaboratorio=" + idLaboratorio + ", invima=" + invima 
-                           + ", idLineaProducto=" + idLineaProducto + '}';
+        return "Producto{" + "id=" + id + ", nombre=" + nombre + ", cantidad=" + cantidad
+                + ", iva=" + iva + ", precio=" + precio + ", margenDeGanancia=" + margenDeGanancia
+                + ", idPresentacion=" + idPresentacion + ", idLaboratorio=" + idLaboratorio
+                + ", invima=" + invima + ", idLineaProducto=" + idLineaProducto + '}';
     }
-    
- }
+
+}

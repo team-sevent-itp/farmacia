@@ -11,25 +11,25 @@ import java.util.Objects;
  *
  * @author nuevo
  */
-public class Presentacion {
+public class LineaProducto {
     private long id;
     private String nombre;
 
-    public Presentacion(long id, String nombre) {
+    public LineaProducto(long id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }
 
-    public Presentacion() {
+    public LineaProducto() {
         this.id=0L;
-        this.nombre="";
+        this.nombre="";                
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 71 * hash + (int) (this.id ^ (this.id >>> 32));
-        hash = 71 * hash + Objects.hashCode(this.nombre);
+        hash = 97 * hash + (int) (this.id ^ (this.id >>> 32));
+        hash = 97 * hash + Objects.hashCode(this.nombre);
         return hash;
     }
 
@@ -44,7 +44,7 @@ public class Presentacion {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Presentacion other = (Presentacion) obj;
+        final LineaProducto other = (LineaProducto) obj;
         if (this.id != other.id) {
             return false;
         }
@@ -72,9 +72,8 @@ public class Presentacion {
 
     @Override
     public String toString() {
-        return "Presentacion{" + "id=" + id + ", nombre=" + nombre + '}';
+        return "LineaProducto{" + "id=" + id + ", nombre=" + nombre + '}';
     }
-    
-    
+        
     
 }
