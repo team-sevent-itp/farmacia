@@ -61,6 +61,7 @@ public class panelCliente extends javax.swing.JPanel {
         jRadioButton2 = new javax.swing.JRadioButton();
         jLabel9 = new javax.swing.JLabel();
         JTFFieldDepart = new javax.swing.JTextField();
+        jSeparator5 = new javax.swing.JSeparator();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(954, 698));
@@ -69,44 +70,28 @@ public class panelCliente extends javax.swing.JPanel {
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
-        jButtonNuevo.setBackground(new java.awt.Color(0, 18, 50));
-        jButtonNuevo.setForeground(new java.awt.Color(153, 0, 153));
         jButtonNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Nuevo1.png"))); // NOI18N
         jButtonNuevo.setText("Nuevo");
-        jButtonNuevo.setBorder(null);
-        jButtonNuevo.setBorderPainted(false);
         jButtonNuevo.setContentAreaFilled(false);
-        jButtonNuevo.setFocusPainted(false);
+        jButtonNuevo.setFocusable(false);
         jButtonNuevo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonNuevo.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Nuevo2 .png"))); // NOI18N
         jButtonNuevo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButtonNuevo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButtonNuevoMouseEntered(evt);
-            }
-        });
-        jButtonNuevo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonNuevoActionPerformed(evt);
-            }
-        });
         jToolBar1.add(jButtonNuevo);
         jToolBar1.add(jSeparator1);
 
         jButtonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8editar1.png"))); // NOI18N
         jButtonEditar.setText("Editar");
-        jButtonEditar.setBorderPainted(false);
         jButtonEditar.setContentAreaFilled(false);
         jButtonEditar.setFocusable(false);
         jButtonEditar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButtonEditar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Edit2.png"))); // NOI18N
         jButtonEditar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Edit2.png"))); // NOI18N
         jButtonEditar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jButtonEditar);
 
         jButtonBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Close1.png"))); // NOI18N
         jButtonBorrar.setText("Borrar");
-        jButtonBorrar.setBorderPainted(false);
+        jButtonBorrar.setContentAreaFilled(false);
         jButtonBorrar.setFocusable(false);
         jButtonBorrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonBorrar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Close2.png"))); // NOI18N
@@ -116,7 +101,7 @@ public class panelCliente extends javax.swing.JPanel {
 
         jButtonGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Save1.png"))); // NOI18N
         jButtonGuardar.setText("Guardar");
-        jButtonGuardar.setBorderPainted(false);
+        jButtonGuardar.setContentAreaFilled(false);
         jButtonGuardar.setFocusable(false);
         jButtonGuardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonGuardar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Save2.png"))); // NOI18N
@@ -125,7 +110,7 @@ public class panelCliente extends javax.swing.JPanel {
 
         jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Cancelar1.png"))); // NOI18N
         jButtonCancelar.setText("Cancelar");
-        jButtonCancelar.setBorderPainted(false);
+        jButtonCancelar.setContentAreaFilled(false);
         jButtonCancelar.setFocusable(false);
         jButtonCancelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButtonCancelar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Cancelar2.png"))); // NOI18N
@@ -275,19 +260,25 @@ public class panelCliente extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 867, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 87, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jScrollPane1)
                 .addGap(18, 18, 18)
                 .addComponent(jPanelDetalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jSeparator5)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanelDetalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -301,14 +292,6 @@ public class panelCliente extends javax.swing.JPanel {
     private void jTextFieldNombre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombre1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNombre1ActionPerformed
-
-    private void jButtonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoActionPerformed
-       
-    }//GEN-LAST:event_jButtonNuevoActionPerformed
-
-    private void jButtonNuevoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonNuevoMouseEntered
-      setColor(jButtonNuevo);
-    }//GEN-LAST:event_jButtonNuevoMouseEntered
 
      void setColor(JButton boton){
         boton.setBackground(new Color(0, 18, 50));
@@ -339,6 +322,7 @@ public class panelCliente extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
+    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextFieldApellido1;
     private javax.swing.JTextField jTextFieldApellido2;

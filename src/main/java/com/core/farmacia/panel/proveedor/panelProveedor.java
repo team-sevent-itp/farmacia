@@ -27,15 +27,6 @@ public class panelProveedor extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jSeparator2 = new javax.swing.JSeparator();
-        jSeparator3 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
@@ -47,80 +38,15 @@ public class panelProveedor extends javax.swing.JPanel {
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Nuevo1.png"))); // NOI18N
-        jButton1.setText("Nuevo");
-        jButton1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Nuevo2 .png"))); // NOI18N
-
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8editar1.png"))); // NOI18N
-        jButton2.setText("Editar");
-        jButton2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Edit2.png"))); // NOI18N
-
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Close1.png"))); // NOI18N
-        jButton3.setText("Borrar");
-        jButton3.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Close2.png"))); // NOI18N
-
-        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Save1.png"))); // NOI18N
-        jButton4.setText("Guardar");
-        jButton4.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Save2.png"))); // NOI18N
-
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Cancelar1.png"))); // NOI18N
-        jButton5.setText("Cancelar");
-        jButton5.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Cancelar2.png"))); // NOI18N
-
-        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4)
-                .addGap(18, 18, 18)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jSeparator3)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jButton1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton4)
-                            .addComponent(jButton5)))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jToolBar1 = new javax.swing.JToolBar();
+        jButtonNuevo = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JToolBar.Separator();
+        jButtonEditar = new javax.swing.JButton();
+        jButtonBorrar = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JToolBar.Separator();
+        jButtonGuardar = new javax.swing.JButton();
+        jButtonCancelar = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JSeparator();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -193,28 +119,77 @@ public class panelProveedor extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
+        jToolBar1.setFloatable(false);
+        jToolBar1.setRollover(true);
+
+        jButtonNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Nuevo1.png"))); // NOI18N
+        jButtonNuevo.setText("Nuevo");
+        jButtonNuevo.setContentAreaFilled(false);
+        jButtonNuevo.setFocusable(false);
+        jButtonNuevo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonNuevo.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Nuevo2 .png"))); // NOI18N
+        jButtonNuevo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jButtonNuevo);
+        jToolBar1.add(jSeparator1);
+
+        jButtonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8editar1.png"))); // NOI18N
+        jButtonEditar.setText("Editar");
+        jButtonEditar.setContentAreaFilled(false);
+        jButtonEditar.setFocusable(false);
+        jButtonEditar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonEditar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_Edit2.png"))); // NOI18N
+        jButtonEditar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jButtonEditar);
+
+        jButtonBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Close1.png"))); // NOI18N
+        jButtonBorrar.setText("Borrar");
+        jButtonBorrar.setContentAreaFilled(false);
+        jButtonBorrar.setFocusable(false);
+        jButtonBorrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonBorrar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Close2.png"))); // NOI18N
+        jButtonBorrar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jButtonBorrar);
+        jToolBar1.add(jSeparator2);
+
+        jButtonGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Save1.png"))); // NOI18N
+        jButtonGuardar.setText("Guardar");
+        jButtonGuardar.setContentAreaFilled(false);
+        jButtonGuardar.setFocusable(false);
+        jButtonGuardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonGuardar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Save2.png"))); // NOI18N
+        jButtonGuardar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jButtonGuardar);
+
+        jButtonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Cancelar1.png"))); // NOI18N
+        jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.setContentAreaFilled(false);
+        jButtonCancelar.setFocusable(false);
+        jButtonCancelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonCancelar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8Cancelar2.png"))); // NOI18N
+        jButtonCancelar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jButtonCancelar);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15)))
-                .addContainerGap())
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25))
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jSeparator3)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -224,25 +199,25 @@ public class panelProveedor extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButtonBorrar;
+    private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonEditar;
+    private javax.swing.JButton jButtonGuardar;
+    private javax.swing.JButton jButtonNuevo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JToolBar.Separator jSeparator1;
+    private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }
