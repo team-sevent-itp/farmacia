@@ -23,6 +23,9 @@ public class Producto {
     private Laboratorio idLaboratorio;
     private String invima;
     private LineaProducto idLineaProducto;
+    private int nroPaginas;
+    private int nroRegistros;
+    
 
     public Producto(long id, String nombre, long cantidad, double iva, double precio,
             double margenDeGanancia, Presentacion idPresentacion, Laboratorio idLaboratorio,
@@ -54,17 +57,19 @@ public class Producto {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 83 * hash + (int) (this.id ^ (this.id >>> 32));
-        hash = 83 * hash + Objects.hashCode(this.nombre);
-        hash = 83 * hash + (int) (this.cantidad ^ (this.cantidad >>> 32));
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.iva) ^ (Double.doubleToLongBits(this.iva) >>> 32));
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.precio) ^ (Double.doubleToLongBits(this.precio) >>> 32));
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.margenDeGanancia) ^ (Double.doubleToLongBits(this.margenDeGanancia) >>> 32));
-        hash = 83 * hash + Objects.hashCode(this.idPresentacion);
-        hash = 83 * hash + Objects.hashCode(this.idLaboratorio);
-        hash = 83 * hash + Objects.hashCode(this.invima);
-        hash = 83 * hash + Objects.hashCode(this.idLineaProducto);
+        int hash = 7;
+        hash = 41 * hash + (int) (this.id ^ (this.id >>> 32));
+        hash = 41 * hash + Objects.hashCode(this.nombre);
+        hash = 41 * hash + (int) (this.cantidad ^ (this.cantidad >>> 32));
+        hash = 41 * hash + (int) (Double.doubleToLongBits(this.iva) ^ (Double.doubleToLongBits(this.iva) >>> 32));
+        hash = 41 * hash + (int) (Double.doubleToLongBits(this.precio) ^ (Double.doubleToLongBits(this.precio) >>> 32));
+        hash = 41 * hash + (int) (Double.doubleToLongBits(this.margenDeGanancia) ^ (Double.doubleToLongBits(this.margenDeGanancia) >>> 32));
+        hash = 41 * hash + Objects.hashCode(this.idPresentacion);
+        hash = 41 * hash + Objects.hashCode(this.idLaboratorio);
+        hash = 41 * hash + Objects.hashCode(this.invima);
+        hash = 41 * hash + Objects.hashCode(this.idLineaProducto);
+        hash = 41 * hash + this.nroPaginas;
+        hash = 41 * hash + this.nroRegistros;
         return hash;
     }
 
@@ -95,6 +100,12 @@ public class Producto {
         if (Double.doubleToLongBits(this.margenDeGanancia) != Double.doubleToLongBits(other.margenDeGanancia)) {
             return false;
         }
+        if (this.nroPaginas != other.nroPaginas) {
+            return false;
+        }
+        if (this.nroRegistros != other.nroRegistros) {
+            return false;
+        }
         if (!Objects.equals(this.nombre, other.nombre)) {
             return false;
         }
@@ -112,6 +123,8 @@ public class Producto {
         }
         return true;
     }
+    
+    
 
     public long getId() {
         return id;
@@ -193,12 +206,28 @@ public class Producto {
         this.idLineaProducto = idLineaProducto;
     }
 
+    public int getNroPaginas() {
+        return nroPaginas;
+    }
+
+    public void setNroPaginas(int nroPaginas) {
+        this.nroPaginas = nroPaginas;
+    }
+
+    public int getNroRegistros() {
+        return nroRegistros;
+    }
+
+    public void setNroRegistros(int nroRegistros) {
+        this.nroRegistros = nroRegistros;
+    }
+    
     @Override
     public String toString() {
         return "Producto{" + "id=" + id + ", nombre=" + nombre + ", cantidad=" + cantidad
                 + ", iva=" + iva + ", precio=" + precio + ", margenDeGanancia=" + margenDeGanancia
-                + ", idPresentacion=" + idPresentacion + ", idLaboratorio=" + idLaboratorio
-                + ", invima=" + invima + ", idLineaProducto=" + idLineaProducto + '}';
+                + ", idPresentacion=" + idPresentacion.getNombre() + ", idLaboratorio=" + idLaboratorio.getNombre()
+                + ", invima=" + invima + ", idLineaProducto=" + idLineaProducto.getNombre() + '}';
     }
 
 }
