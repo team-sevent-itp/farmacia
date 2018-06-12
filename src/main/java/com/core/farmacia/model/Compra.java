@@ -75,7 +75,7 @@ public class Compra {
         if (!Objects.equals(this.hora, other.hora)) {
             return false;
         }
-        return true;
+        return true; 
     }
 
     public long getId() {

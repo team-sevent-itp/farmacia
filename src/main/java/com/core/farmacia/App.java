@@ -47,7 +47,7 @@ public class App {
             System.out.println(lab.toString());
             System.out.println(pre.toString());
 
-            productList = manager.crearProducto().getPaginacion(1,1000);
+            productList = manager.crearProducto().getPaginacion(20,10);
             productList.stream().forEach(ob -> {
                 System.out.println(ob.toString());
             });
