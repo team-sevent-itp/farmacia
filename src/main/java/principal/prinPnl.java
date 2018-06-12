@@ -5,7 +5,7 @@ import com.core.farmacia.panel.compra.panelCompra;
 import com.core.farmacia.panel.proveedor.panelProveedor;
 import com.core.farmacia.panel.inventario.panelInventario;
 import com.core.farmacia.panel.venta.panelVenta;
-import paneles.CambiaPanel;
+import com.core.farmacia.cambiarpanel.CambiaPanel;
 
 
 /**
