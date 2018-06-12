@@ -3,7 +3,7 @@ package com.core.farmacia.panel.compra;
 
 /**
  *
- * @author edin-
+ * @author desconocido
  */
 public class panelCompra extends javax.swing.JPanel {
 
