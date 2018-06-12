@@ -16,7 +16,12 @@ import java.util.List;
  *
  * @author nuevo
  */
-public class ProductoMysqlDaoImpl implements DAOProducto{
+public class ProductoMysqlDaoImpl implements DAOProducto {
+
+    private String INSERT = "INSERT INTO linea_producto(nombre) VALUES(?)";
+    private String DELETE = "DELETE FROM linea_producto WHERE id = ?";
+    private String UPDATE = "UPDATE linea_producto SET nombre = ? WHERE id = ?";
+    private String GETALL = "SELECT id, nombre FROM linea_producto";
 
     Connection conn;
     DAOManager manager;
@@ -25,8 +30,7 @@ public class ProductoMysqlDaoImpl implements DAOProducto{
         this.conn = conn;
         this.manager = manager;
     }
-    
-    
+
     @Override
     public void ingresar(Producto o) throws DAOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -51,5 +55,5 @@ public class ProductoMysqlDaoImpl implements DAOProducto{
     public Producto getOne(Long o) throws DAOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }
