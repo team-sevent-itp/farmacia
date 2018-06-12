@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package principal;
 import com.core.farmacia.panel.cliente.panelCliente;
 import com.core.farmacia.panel.compra.panelCompra;
@@ -14,7 +10,7 @@ import paneles.CambiaPanel;
 
 /**
  *
- * @author edin-
+ * @author deconocido
  */
 public class prinPnl extends javax.swing.JFrame {
 
@@ -39,17 +35,21 @@ public class prinPnl extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         pnlboton = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
-        pnlMenu = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        pnlMenu = new javax.swing.JPanel();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
         pnlPrincipal = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1150, 460));
+        setPreferredSize(new java.awt.Dimension(934, 700));
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
         pnlboton.setBackground(new java.awt.Color(0, 18, 50));
         pnlboton.setPreferredSize(new java.awt.Dimension(140, 79));
@@ -93,56 +93,7 @@ public class prinPnl extends javax.swing.JFrame {
 
         getContentPane().add(jPanel5, java.awt.BorderLayout.PAGE_START);
 
-        pnlMenu.setBackground(new java.awt.Color(0, 18, 50));
-        pnlMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btCompra1.png"))); // NOI18N
-        jButton1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btCompra2.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        pnlMenu.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 140, 50));
-
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnVenta1.png"))); // NOI18N
-        jButton2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnVenta2.png"))); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        pnlMenu.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 140, 50));
-
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btInventario.png"))); // NOI18N
-        jButton3.setContentAreaFilled(false);
-        jButton3.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btInventario2.png"))); // NOI18N
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        pnlMenu.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 140, 50));
-
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnProveedor1.png"))); // NOI18N
-        jButton5.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnProveedor2.png"))); // NOI18N
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        pnlMenu.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 140, 50));
-
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnCliente1.png"))); // NOI18N
-        jButton6.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnCliente2.png"))); // NOI18N
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        pnlMenu.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 140, 50));
-
-        getContentPane().add(pnlMenu, java.awt.BorderLayout.LINE_START);
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -156,6 +107,70 @@ public class prinPnl extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel7, java.awt.BorderLayout.LINE_END);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        pnlMenu.setBackground(new java.awt.Color(0, 18, 50));
+        pnlMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btCompra1.png"))); // NOI18N
+        jButton7.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btCompra2.png"))); // NOI18N
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        pnlMenu.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 140, 50));
+
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnVenta1.png"))); // NOI18N
+        jButton8.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnVenta2.png"))); // NOI18N
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        pnlMenu.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 140, 50));
+
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btInventario.png"))); // NOI18N
+        jButton9.setContentAreaFilled(false);
+        jButton9.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btInventario2.png"))); // NOI18N
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        pnlMenu.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 140, 50));
+
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnProveedor1.png"))); // NOI18N
+        jButton10.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnProveedor2.png"))); // NOI18N
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+        pnlMenu.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 140, 50));
+
+        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnCliente1.png"))); // NOI18N
+        jButton11.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnCliente2.png"))); // NOI18N
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+        pnlMenu.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 140, 50));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel1, java.awt.BorderLayout.LINE_START);
 
         pnlPrincipal.setLayout(new java.awt.CardLayout());
         getContentPane().add(pnlPrincipal, java.awt.BorderLayout.CENTER);
@@ -184,46 +199,50 @@ public class prinPnl extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new CambiaPanel(pnlPrincipal, new panelCompra());
-         posicion = pnlMenu.getX();
-        if(posicion!=-80){
-             Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlMenu);
-             Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlboton);
-        }
-       
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+     new CambiaPanel(pnlPrincipal ,new  panelCompra());
+     posicion = pnlMenu.getX();
+     if(posicion !=-80){
+          Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlMenu);
+          Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlboton);
+     }
+    }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+      new CambiaPanel(pnlPrincipal ,new  panelVenta());
+      posicion = pnlMenu.getX();
+      if(posicion !=-80){
+         Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlMenu);
+          Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlboton);
+     }
+    }//GEN-LAST:event_jButton8ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-      new CambiaPanel(pnlPrincipal, new panelInventario());
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+       new CambiaPanel(pnlPrincipal ,new  panelInventario());
+       posicion = pnlMenu.getX();
+       if(posicion !=-80){
+         Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlMenu);
+          Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlboton);
+     }
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        new CambiaPanel(pnlPrincipal ,new  panelProveedor());
         posicion = pnlMenu.getX();
-        if(posicion!=-80){
-             Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlMenu);
-             Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlboton);
-        }
-    }//GEN-LAST:event_jButton3ActionPerformed
+        if(posicion !=-80){
+          Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlMenu);
+           Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlboton);
+     }
+    }//GEN-LAST:event_jButton10ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-         new CambiaPanel(pnlPrincipal, new panelCliente());
-          posicion = pnlMenu.getX();
-        if(posicion!=-80){
-             Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlMenu);
-             Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlboton);
-        }
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-       new CambiaPanel(pnlPrincipal, new panelProveedor());
-         posicion = pnlMenu.getX();
-        if(posicion!=-80){
-             Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlMenu);
-             Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlboton);
-        }
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+       new CambiaPanel(pnlPrincipal ,new  panelCliente());
+       posicion = pnlMenu.getX();
+       if(posicion !=-80){
+          Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlMenu);
+           Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlboton);
+     }
+    }//GEN-LAST:event_jButton11ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,12 +283,13 @@ public class prinPnl extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel pnlMenu;
