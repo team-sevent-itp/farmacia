@@ -13,6 +13,7 @@ import com.core.farmacia.dao.DAOLaboratorio;
 import com.core.farmacia.dao.DAOLineaProducto;
 import com.core.farmacia.dao.DAOManager;
 import com.core.farmacia.dao.DAOMunicipio;
+import com.core.farmacia.dao.DAOPaginacionBs;
 import com.core.farmacia.dao.DAOPresentacion;
 import com.core.farmacia.dao.DAOProducto;
 import com.core.farmacia.dao.DAOProveedor;
@@ -38,6 +39,7 @@ public class ManagerDaoImpl implements DAOManager{
     DAOLineaProducto lineaProductos = null;
     DAODepartamento departamentos = null;
     DAOMunicipio municipios = null;
+    DAOPaginacionBs paginacion = null;
     
     Connection conn;
     
@@ -141,6 +143,15 @@ public class ManagerDaoImpl implements DAOManager{
             lineaProductos = new LineaProductoMysqlDaoImpl(conn);
         }        
         return lineaProductos;
+    }
+
+    @Override
+    public DAOPaginacionBs crearPaginacion() {
+        if(paginacion == null){
+            paginacion = new EntPaginacionBusquedaDaoImpl(conn);
+        }
+        return paginacion;
+        
     }
     
 }

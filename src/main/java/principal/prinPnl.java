@@ -6,6 +6,10 @@ import com.core.farmacia.panel.proveedor.panelProveedor;
 import com.core.farmacia.panel.inventario.panelInventario;
 import com.core.farmacia.panel.venta.panelVenta;
 import com.core.farmacia.cambiarpanel.CambiaPanel;
+import com.core.farmacia.dao.DAOException;
+import com.core.farmacia.dao.DAOManager;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -18,8 +22,11 @@ public class prinPnl extends javax.swing.JFrame {
      * Creates new form prinP
      */
     int posicion;
-    public prinPnl() {
+    DAOManager manager;
+    
+    public prinPnl(DAOManager manager) {
         initComponents();
+        this.manager = manager;
         
     }
 
@@ -218,7 +225,11 @@ public class prinPnl extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-       new CambiaPanel(pnlPrincipal ,new  panelInventario());
+        try {
+            new CambiaPanel(pnlPrincipal ,new  panelInventario(manager));
+        } catch (DAOException ex) {
+            Logger.getLogger(prinPnl.class.getName()).log(Level.SEVERE, null, ex);
+        }
        posicion = pnlMenu.getX();
        if(posicion !=-80){
          Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlMenu);
@@ -244,43 +255,7 @@ public class prinPnl extends javax.swing.JFrame {
      }
     }//GEN-LAST:event_jButton11ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(prinPnl.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(prinPnl.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(prinPnl.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(prinPnl.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new prinPnl().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton10;
