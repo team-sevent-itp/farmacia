@@ -8,6 +8,7 @@ package com.core.farmacia.mysql;
 import com.core.farmacia.dao.DAOException;
 import com.core.farmacia.dao.DAOManager;
 import com.core.farmacia.dao.DAOProducto;
+import com.core.farmacia.model.BusquedaCombo;
 import com.core.farmacia.model.Laboratorio;
 import com.core.farmacia.model.LineaProducto;
 import com.core.farmacia.model.Presentacion;
@@ -33,8 +34,10 @@ public class ProductoMysqlDaoImpl implements DAOProducto {
     private String UPDATE = "UPDATE linea_producto SET nombre = ? WHERE id = ?";
     private String GETALL = "SELECT id, nombre FROM linea_producto";
     private String GETPAGINATION = "{call ObtenDatosPaginados(?,?)}";
-    
-    
+    private String GETSEARCHITEM = "{call buscar(?)}";
+    private String GETONE = "{call buscarUno(?)}";
+    private String GETSEARCH = "{call bs(?)}";
+
     Connection conn;
     DAOManager manager;
 
@@ -65,9 +68,47 @@ public class ProductoMysqlDaoImpl implements DAOProducto {
 
     @Override
     public Producto getOne(Long o) throws DAOException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Producto product = null;
+        CallableStatement stact = null;
+        ResultSet rs = null;
+
+        try {
+            stact = conn.prepareCall(GETONE);
+            stact.setLong(1, o);
+            stact.execute();
+            rs = stact.getResultSet();
+
+            if (rs.next()) {
+                Laboratorio lab = manager.crearLaboratorio().getOne(rs.getLong("id_labotatorio"));
+                Presentacion tipo = manager.crearPresentacion().getOne(rs.getLong("id_presentacion"));
+                LineaProducto lineaProducto = manager.crearLineaProducto().getOne(rs.getLong("id_linea_producto"));
+                product = new Producto(rs.getLong("id"), rs.getString("nombre_producto"), rs.getInt("cantidad"),
+                        rs.getDouble("iva"), rs.getDouble("precio_uds_venta"), rs.getDouble("margen_de_ganancia"), tipo, lab,
+                        rs.getString("invima"), lineaProducto);
+            }
+
+        } catch (SQLException ex) {
+            new DAOException("Error al llamar el procedimiento", ex);
+
+        } finally {
+            if (stact != null) {
+                try {
+                    stact.close();
+                } catch (SQLException ex) {
+                    new DAOException("Error al cerrar stact", ex);
+                }
+            }
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    new DAOException("Error al cerrar stact", ex);
+                }
+            }
+        }
+        return product;
     }
-    
+
     @Override
     public List<Producto> getPaginacion(int ini, int max) throws DAOException {
         List<Producto> list = new ArrayList<>();
@@ -90,6 +131,93 @@ public class ProductoMysqlDaoImpl implements DAOProducto {
                         rs.getString("invima"), lineaProducto);
                 producto.setNroPaginas(rs.getInt("TotalPaginas"));
                 producto.setNroRegistros(rs.getInt("TotalRegistros"));
+                list.add(producto);
+            }
+
+        } catch (SQLException ex) {
+            new DAOException("Error al llamar el procedimiento", ex);
+
+        } finally {
+            if (stact != null) {
+                try {
+                    stact.close();
+                } catch (SQLException ex) {
+                    new DAOException("Error al cerrar stact", ex);
+                }
+            }
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    new DAOException("Error al cerrar stact", ex);
+                }
+            }
+
+        }
+
+        return list;
+    }
+
+    @Override
+    public List<BusquedaCombo> getBusquedaProducto(String nom) throws DAOException {
+        List<BusquedaCombo> list = new ArrayList<>();
+        CallableStatement stact = null;
+        ResultSet rs = null;
+
+        try {
+            stact = conn.prepareCall(GETSEARCHITEM);
+            stact.setString(1, nom);
+            stact.execute();
+            rs = stact.getResultSet();
+
+            while (rs.next()) {
+
+                list.add(new BusquedaCombo(rs.getLong("id"), rs.getString("nombre_producto")));
+            }
+
+        } catch (SQLException ex) {
+            new DAOException("Error al llamar el procedimiento", ex);
+
+        } finally {
+            if (stact != null) {
+                try {
+                    stact.close();
+                } catch (SQLException ex) {
+                    new DAOException("Error al cerrar stact", ex);
+                }
+            }
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    new DAOException("Error al cerrar stact", ex);
+                }
+            }
+
+        }
+
+        return list;
+    }
+
+    @Override
+    public List<Producto> getBusqueda(String nom) throws DAOException {
+        List<Producto> list = new ArrayList<>();
+        CallableStatement stact = null;
+        ResultSet rs = null;
+
+        try {
+            stact = conn.prepareCall(GETSEARCH);
+            stact.setString(1, nom);
+            stact.execute();
+            rs = stact.getResultSet();
+
+            while (rs.next()) {
+                Laboratorio lab = manager.crearLaboratorio().getOne(rs.getLong("id_labotatorio"));
+                Presentacion tipo = manager.crearPresentacion().getOne(rs.getLong("id_presentacion"));
+                LineaProducto lineaProducto = manager.crearLineaProducto().getOne(rs.getLong("id_linea_producto"));
+                Producto producto = new Producto(rs.getLong("id"), rs.getString("nombre_producto"), rs.getInt("cantidad"),
+                        rs.getDouble("iva"), rs.getDouble("precio_uds_venta"), rs.getDouble("margen_de_ganancia"), tipo, lab,
+                        rs.getString("invima"), lineaProducto);
                 list.add(producto);
             }
 

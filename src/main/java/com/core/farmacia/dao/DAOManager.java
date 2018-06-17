@@ -24,5 +24,6 @@ public interface DAOManager {
     DAOMunicipio crearMunicipio();
     DAODepartamento crearDepartamento();
     DAOLineaProducto crearLineaProducto();
+    DAOPaginacionBs crearPaginacion();
     
 }

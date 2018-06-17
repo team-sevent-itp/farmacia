@@ -2,6 +2,8 @@ package com.core.farmacia;
 
 import com.core.farmacia.dao.DAOException;
 import com.core.farmacia.dao.DAOManager;
+import com.core.farmacia.model.BusquedaCombo;
+import com.core.farmacia.model.Ent_paginacion_bs;
 import com.core.farmacia.model.Laboratorio;
 import com.core.farmacia.model.LineaProducto;
 import com.core.farmacia.model.Presentacion;
@@ -10,6 +12,7 @@ import com.core.farmacia.mysql.ManagerDaoImpl;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import principal.prinPnl;
 
 /**
  *
@@ -28,6 +31,12 @@ public class App {
 
         Laboratorio lab = new Laboratorio();
         Presentacion pre = new Presentacion();
+        List<BusquedaCombo> listCombo = new ArrayList<>();
+        Producto producto = new Producto();
+        
+        List<Producto> p = new ArrayList<>();
+        
+        List<Ent_paginacion_bs> list_page = new ArrayList<>();
 
         try {
             DAOManager manager = new ManagerDaoImpl("192.168.1.10:3306", "farmacia_popular_d", "kelium", "kelium");
@@ -41,7 +50,7 @@ public class App {
                 System.out.println(ob.toString());
             });*/
 
-            lab = manager.crearLaboratorio().getOne(2L);
+ /*lab = manager.crearLaboratorio().getOne(2L);
             pre = manager.crearPresentacion().getOne(2L);
 
             System.out.println(lab.toString());
@@ -50,7 +59,38 @@ public class App {
             productList = manager.crearProducto().getPaginacion(20,10);
             productList.stream().forEach(ob -> {
                 System.out.println(ob.toString());
+            });*/
+
+ /* listCombo = manager.crearProducto().getBusquedaProducto("ZIFLUVIS");
+            listCombo.stream().forEach(ob -> {
+                System.out.println(ob.toString());
             });
+            
+            producto = manager.crearProducto().getOne(listCombo.get(0).getId());
+            System.out.println(producto.toString());
+             */
+            long startTime = System.nanoTime();
+
+            prinPnl principal = new prinPnl(manager);
+            principal.setVisible(true);
+            
+           /* list_page = manager.crearPaginacion().paginacion_producto(0, 10, "ACEITE");
+            list_page.stream().forEach(ob -> {
+                System.out.println(ob.toString());
+            });
+            */
+            
+            
+          /*  p = manager.crearProducto().getBusqueda("ZIFLUVIS");
+            p.stream().forEach(ob -> {
+                System.out.println(ob.toString());
+            });*/
+
+            //producto = productList.get(0);
+            //System.out.println(producto.toString());
+            long endTime = System.nanoTime() - startTime;
+            System.out.println(endTime);
+
         } catch (SQLException ex) {
             new DAOException("Error al iniciar la conexion", ex);
         }
