@@ -2,8 +2,15 @@ package com.core.farmacia.panel.inventario;
 
 import com.core.farmacia.dao.DAOException;
 import com.core.farmacia.dao.DAOManager;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,10 +20,16 @@ public class panelInventario extends javax.swing.JPanel {
 
     DAOManager manager;
     PageTableModel modelPage;
-    int sig = 10;
-    int ant = 10;
+    int paginaActual = 10;
     int pag = 10;//BLoque  paginacion
-    int lim = 0;
+    int lim = 0; //Cantidad de registros de la busqueda
+    int totalPag = 0; //Total de paginas de la consulta 
+    int paginasAMostrar = 5; //Cantidad de botones a mostrar, puede variar de acuerdo a la busqueda
+    int contador = 1;
+    int rangoPaginas = 0; //Para calcular cuantos botones mostrar s
+    int numPaginas = 5;
+
+    List<JButton> listPaginacion = new ArrayList<>();
 
     public panelInventario(DAOManager manager) throws DAOException {
         initComponents();
@@ -44,7 +57,9 @@ public class panelInventario extends javax.swing.JPanel {
         anterior = new javax.swing.JButton();
         siguiente = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        paginas = new javax.swing.JPanel();
 
+        setName("pne"); // NOI18N
         setPreferredSize(new java.awt.Dimension(954, 698));
 
         tablaInv.setModel(new javax.swing.table.DefaultTableModel(
@@ -105,7 +120,9 @@ public class panelInventario extends javax.swing.JPanel {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(registros, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(paginas, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(anterior)
                         .addGap(18, 18, 18)
                         .addComponent(siguiente)))
@@ -120,55 +137,148 @@ public class panelInventario extends javax.swing.JPanel {
                     .addComponent(btn_search))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(anterior)
-                        .addComponent(siguiente)
-                        .addComponent(jLabel1))
-                    .addComponent(registros, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(anterior)
+                                .addComponent(siguiente)
+                                .addComponent(jLabel1))
+                            .addComponent(registros, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(paginas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(439, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_searchActionPerformed
-        ant = 0;
-        sig = 10;
+        this.paginas.removeAll();
+        listPaginacion = new ArrayList<>();
+        paginaActual = 0;
+        rangoPaginas = 0;
+        contador = 1;
+        
         modelPage = new PageTableModel(manager.crearPaginacion());
         try {
-            modelPage.update(ant, pag, this.txt_str.getText().trim());
+            modelPage.update(paginaActual, pag, this.txt_str.getText().trim());
         } catch (DAOException ex) {
             Logger.getLogger(panelInventario.class.getName()).log(Level.SEVERE, null, ex);
         }
         tablaInv.setModel(modelPage);
 
         lim = manager.crearPaginacion().cantidadRegistros();
-        registros.setText(""+lim);
+        registros.setText("" + lim);
+
+        _add_object();
     }//GEN-LAST:event_btn_searchActionPerformed
+
+    private void _add_object() {
+
+        totalPag = lim / pag;
+
+        if (lim % pag != 0) {
+            totalPag = (lim / pag) + 1;
+        }
+
+        rangoPaginas = paginasAMostrar;
+
+        if (totalPag < paginasAMostrar) {
+            rangoPaginas = totalPag;
+            numPaginas = rangoPaginas;
+        }
+
+        for (contador = 1; contador <= rangoPaginas; contador++) {
+            JButton bt = new JButton();
+            bt.setText("" + contador);
+            Dimension size = bt.getPreferredSize();
+            bt.setSize(size.width, size.height);
+            bt.setVisible(true);
+
+            bt.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    modelPage = new PageTableModel(manager.crearPaginacion());
+                    try {
+                        int paginaRangoPaginas = Integer.parseInt(bt.getText()) - 1;
+                        modelPage.update(paginaRangoPaginas * pag, pag, txt_str.getText().trim());
+                        paginaActual = paginaRangoPaginas * pag;
+                    } catch (DAOException ex) {
+                        new DAOException("Error al mostrar datos", ex);
+                    }
+
+                    tablaInv.setModel(modelPage);
+                }
+            });
+
+            this.paginas.add(bt);
+            listPaginacion.add(bt);
+        }
+
+        this.paginas.updateUI();
+    }
+
+    private void siguientePaginacion() {
+        if (paginaActual == ((rangoPaginas - 1) * pag)) {
+            listPaginacion.stream().forEach(ob -> {
+                rangoPaginas++;
+                ob.setText("" + rangoPaginas);
+            });
+        }
+    }
+
+    private void anteriorPaginacion() {
+
+        int cal = (rangoPaginas * pag) - paginaActual;
+        int result = (numPaginas * pag) - cal;
+        int fin = (rangoPaginas * pag);
+
+        System.out.println(fin);
+        System.out.println(paginaActual);
+        System.out.println(result);
+        contador = 0;
+        contador = (paginaActual / 10) - numPaginas;
+
+        if ((numPaginas + 1) * pag == ((rangoPaginas) * pag) - (paginaActual - 10)) {
+
+            listPaginacion.stream().forEach(ob -> {
+                rangoPaginas--;
+                contador++;
+
+                ob.setText("" + contador);
+            });
+        }
+    }
 
     private void txt_strActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_strActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_strActionPerformed
 
     private void siguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_siguienteActionPerformed
-        ant += pag;
+        siguientePaginacion();
+        paginaActual += pag;
         modelPage = new PageTableModel(manager.crearPaginacion());
         try {
-            modelPage.update(ant, pag, this.txt_str.getText().trim());
+            modelPage.update(paginaActual, pag, this.txt_str.getText().trim());
+
         } catch (DAOException ex) {
-            Logger.getLogger(panelInventario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(panelInventario.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
         tablaInv.setModel(modelPage);
 
     }//GEN-LAST:event_siguienteActionPerformed
 
     private void anteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anteriorActionPerformed
-        ant -= pag;
+        anteriorPaginacion();
+        paginaActual -= pag;
         modelPage = new PageTableModel(manager.crearPaginacion());
         try {
-            modelPage.update(ant, pag, this.txt_str.getText().trim());
+            modelPage.update(paginaActual, pag, this.txt_str.getText().trim());
+
         } catch (DAOException ex) {
-            Logger.getLogger(panelInventario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(panelInventario.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
         tablaInv.setModel(modelPage);
 
@@ -180,6 +290,7 @@ public class panelInventario extends javax.swing.JPanel {
     private javax.swing.JButton btn_search;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel paginas;
     private javax.swing.JLabel registros;
     private javax.swing.JButton siguiente;
     private javax.swing.JTable tablaInv;
