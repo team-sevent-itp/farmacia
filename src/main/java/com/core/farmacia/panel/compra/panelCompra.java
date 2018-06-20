@@ -415,6 +415,7 @@ public class panelCompra extends javax.swing.JPanel {
         lote.setEditable(value);
         presentacion.setEditable(value);
         
+        
     }
     
     private void vaciarCampos() {
@@ -431,6 +432,8 @@ public class panelCompra extends javax.swing.JPanel {
         proveedor.setText("");
         presentacion.setText("");
         laboratorio.setText("");
+        lote.setText("");
+        fechaVencimiento.setText("");
     }
     
     private void vaciarCamposProduc() {
@@ -445,6 +448,8 @@ public class panelCompra extends javax.swing.JPanel {
         lineaProducto.setText("");
         presentacion.setText("");
         laboratorio.setText("");
+        lote.setText("");
+        fechaVencimiento.setText("");
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel RegistroCompra;

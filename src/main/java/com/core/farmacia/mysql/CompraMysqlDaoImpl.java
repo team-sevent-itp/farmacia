@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package com.core.farmacia.mysql;
-
+/*
 import com.core.farmacia.dao.DAOCompra;
 import com.core.farmacia.dao.DAOException;
 import com.core.farmacia.dao.DAOManager;
@@ -22,11 +22,13 @@ import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
-
+*/
+/*
 /**
  *
  * @author nuevo
  */
+/*
 public class CompraMysqlDaoImpl implements DAOCompra {
 
     private String INSERT = "INSERT INTO compra(id_proveedor, nro_factura, fecha, hora) VALUES(?,?,current_date(), current_time())";
@@ -135,7 +137,7 @@ public class CompraMysqlDaoImpl implements DAOCompra {
             rs = stact.executeQuery();
 
             while (rs.next()) {
-                Proveedor proveedor = manager.crearProveedor().getOne(rs.getLong("id_proveedor"));
+                Proveedor proveedor = manager.crearProveedor1().getOne(rs.getLong("id_proveedor"));
                 lista.add(new Compra(rs.getLong("id"), proveedor, rs.getString("nro_factura"),
                         parseLocalDate(rs.getDate("fecha")), parseLocalTime(rs.getTime("hora"))));
             }
@@ -172,7 +174,7 @@ public class CompraMysqlDaoImpl implements DAOCompra {
             stact.setLong(1, o);
             rs = stact.executeQuery();
             if (rs.next()) {
-                Proveedor proveedor = manager.crearProveedor().getOne(o);
+                Proveedor proveedor = manager.crearProveedor1().getOne(o);
                 compra = new Compra(rs.getLong("id"), proveedor, rs.getString("nro_factura"), parseLocalDate(rs.getDate("fecha")), parseLocalTime(rs.getTime("hora")));
             }
 
@@ -209,3 +211,4 @@ public class CompraMysqlDaoImpl implements DAOCompra {
     }
 
 }
+*/

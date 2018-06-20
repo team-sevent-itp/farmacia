@@ -17,7 +17,7 @@ import com.core.farmacia.dao.DAOMunicipio;
 import com.core.farmacia.dao.DAOPaginacionBs;
 import com.core.farmacia.dao.DAOPresentacion;
 import com.core.farmacia.dao.DAOProducto;
-import com.core.farmacia.dao.DAOProveedor;
+import com.core.farmacia.dao.DAOProveedorBs;
 import com.core.farmacia.dao.DAORegistroCompra;
 import com.core.farmacia.dao.DAORegistroVenta;
 import com.core.farmacia.dao.DAOVenta;
@@ -33,7 +33,7 @@ public class ManagerDaoImpl implements DAOManager {
 
     DAOProducto productos = null;
     DAOCompra compras = null;
-    DAOProveedor proveedores = null;
+    DAOProveedorBs proveedores = null;
     DAORegistroCompra registroCompras = null;
     DAOPresentacion presentaciones = null;
     DAOLaboratorio laboratorios = null;
@@ -87,14 +87,6 @@ public class ManagerDaoImpl implements DAOManager {
     @Override
     public DAOCliente crearCliente() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public DAOProveedor crearProveedor() {
-        if (proveedores == null) {
-            proveedores = new ProveedorMysqlDaoImpl(conn, this);
-        }
-        return proveedores;
     }
 
     @Override
@@ -156,11 +148,15 @@ public class ManagerDaoImpl implements DAOManager {
 
     @Override
     public DAOCompra_bs crearCompraBs() {
-        if (compra_bs == null) {
-            compra_bs = new EntCompraBs(conn);
-        }
-        return compra_bs;
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
+    @Override
+    public DAOProveedorBs crearProveedor() {
+        if (proveedores == null) {
+            proveedores = new EntProveedorDaoImpl(conn);
+        }
+        return proveedores;
     }
 
 }

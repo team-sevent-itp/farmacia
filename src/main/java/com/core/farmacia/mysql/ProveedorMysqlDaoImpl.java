@@ -4,10 +4,9 @@
  * and open the template in the editor.
  */
 package com.core.farmacia.mysql;
-
+/*
 import com.core.farmacia.dao.DAOException;
 import com.core.farmacia.dao.DAOManager;
-import com.core.farmacia.dao.DAOProveedor;
 import com.core.farmacia.model.LineaProducto;
 import com.core.farmacia.model.Municipio;
 import com.core.farmacia.model.Proveedor;
@@ -17,11 +16,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+*/
 /**
  *
  * @author nuevo
  */
+/*
 public class ProveedorMysqlDaoImpl implements DAOProveedor {
 
     private String INSERT = "INSERT INTO provedor(nombre, telefono1, telefono2, id_municipio) VALUES(?, ?, ?, ?)";
@@ -198,4 +198,4 @@ public class ProveedorMysqlDaoImpl implements DAOProveedor {
         return proveedor;
     }
 
-}
+}*/
