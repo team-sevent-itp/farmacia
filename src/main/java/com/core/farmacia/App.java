@@ -39,7 +39,9 @@ public class App {
         List<Ent_paginacion_bs> list_page = new ArrayList<>();
 
         try {
-            DAOManager manager = new ManagerDaoImpl("192.168.1.10:3306", "farmacia_popular_d", "kelium", "kelium");
+            
+           DAOManager manager = new ManagerDaoImpl("localhost:3306", "farmacia", "root", "123456789");
+           // DAOManager manager = new ManagerDaoImpl("192.168.1.10:3306", "farmacia_popular_d", "kelium", "kelium");
             //manager.crearLineaProducto().ingresar(tipo);
             //manager.crearLineaProducto().actualizar(tipo);
             //manager.crearLineaProducto().eliminar(tipo);
