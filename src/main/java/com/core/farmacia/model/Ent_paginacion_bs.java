@@ -12,17 +12,17 @@ import java.util.Objects;
  * @author nuevo
  */
 public class Ent_paginacion_bs {
+
     private int id;
     private String nombre_producto;
     private int cantidad;
     private double iva;
     private double precio_uds_venta;
     private double margen_de_ganancia;
-    private String  nombre_presentacion;
+    private String nombre_presentacion;
     private String laboratorio;
     private String invima;
     private String linea;
-    
 
     public Ent_paginacion_bs(int id, String nombre_producto, int cantidad, double iva, double precio_uds_venta, double margen_de_ganancia, String nombre_presentacion, String laboratorio, String invima, String linea) {
         this.id = id;
@@ -35,6 +35,9 @@ public class Ent_paginacion_bs {
         this.laboratorio = laboratorio;
         this.invima = invima;
         this.linea = linea;
+    }
+
+    public Ent_paginacion_bs() {
     }
 
     @Override
@@ -177,14 +180,14 @@ public class Ent_paginacion_bs {
     public void setLinea(String linea) {
         this.linea = linea;
     }
-  
-    
-    @Override
+
+    /* @Override
     public String toString() {
         return "Ent_paginacion_bs{" + "id=" + id + ", nombre_producto=" + nombre_producto + ", cantidad=" + cantidad + ", iva=" + iva + ", precio_uds_venta=" + precio_uds_venta + ", margen_de_ganancia=" + margen_de_ganancia + ", nombre_presentacion=" + nombre_presentacion + ", laboratorio=" + laboratorio + ", invima=" + invima + ", linea=" + linea + '}';
     }
-    
-    
-
+     */
+    @Override
+    public String toString() {
+        return nombre_producto;
+    }
 }
-

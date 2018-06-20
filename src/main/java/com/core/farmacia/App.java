@@ -74,7 +74,12 @@ public class App {
             prinPnl principal = new prinPnl(manager);
             principal.setVisible(true);
             
-           /* list_page = manager.crearPaginacion().paginacion_producto(0, 10, "ACEITE");
+           /* list_page = manager.crearPaginacion().p    long startTime = System.nanoTime();
+
+            prinPnl principal = new prinPnl(manager);
+            principal.setVisible(true);
+            
+           /* list_page = manager.crearPaginacion().aginacion_producto(0, 10, "ACEITE");
             list_page.stream().forEach(ob -> {
                 System.out.println(ob.toString());
             });

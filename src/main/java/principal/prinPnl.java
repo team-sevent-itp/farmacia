@@ -1,5 +1,5 @@
-
 package principal;
+
 import com.core.farmacia.panel.cliente.panelCliente;
 import com.core.farmacia.panel.compra.panelCompra;
 import com.core.farmacia.panel.proveedor.panelProveedor;
@@ -10,7 +10,6 @@ import com.core.farmacia.dao.DAOException;
 import com.core.farmacia.dao.DAOManager;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 
 /**
  *
@@ -23,11 +22,11 @@ public class prinPnl extends javax.swing.JFrame {
      */
     int posicion;
     DAOManager manager;
-    
+
     public prinPnl(DAOManager manager) {
         initComponents();
         this.manager = manager;
-        
+
     }
 
     /**
@@ -186,7 +185,7 @@ public class prinPnl extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-      posicion = pnlMenu.getX();
+        posicion = pnlMenu.getX();
         // int posicionP=pnlPrincipal.getX();
         //pnlMenu.setBounds(10, 59, 180, 520);
 
@@ -199,62 +198,67 @@ public class prinPnl extends javax.swing.JFrame {
         } else {
 
             Animacion.Animacion.mover_derecha(-80, 0, 2, 2, pnlMenu);
-             Animacion.Animacion.mover_derecha(-80, 0, 2, 2, pnlboton);
-           // Animacion.Animacion.mover_derecha(60, 190, 2, 2, pnlPrincipal);
+            Animacion.Animacion.mover_derecha(-80, 0, 2, 2, pnlboton);
+            // Animacion.Animacion.mover_derecha(60, 190, 2, 2, pnlPrincipal);
             // pnlMenu.setBounds(10, 59, 180, 520);
 
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-     new CambiaPanel(pnlPrincipal ,new  panelCompra());
-     posicion = pnlMenu.getX();
-     if(posicion !=-80){
-          Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlMenu);
-          Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlboton);
-     }
+
+        try {
+            new CambiaPanel(pnlPrincipal, new panelCompra(manager));
+        } catch (DAOException ex) {
+            Logger.getLogger(prinPnl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        posicion = pnlMenu.getX();
+        if (posicion != -80) {
+            Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlMenu);
+            Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlboton);
+        }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-      new CambiaPanel(pnlPrincipal ,new  panelVenta());
-      posicion = pnlMenu.getX();
-      if(posicion !=-80){
-         Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlMenu);
-          Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlboton);
-     }
+        new CambiaPanel(pnlPrincipal, new panelVenta());
+        posicion = pnlMenu.getX();
+        if (posicion != -80) {
+            Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlMenu);
+            Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlboton);
+        }
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         try {
-            new CambiaPanel(pnlPrincipal ,new  panelInventario(manager));
+            new CambiaPanel(pnlPrincipal, new panelInventario(manager));
         } catch (DAOException ex) {
             Logger.getLogger(prinPnl.class.getName()).log(Level.SEVERE, null, ex);
         }
-       posicion = pnlMenu.getX();
-       if(posicion !=-80){
-         Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlMenu);
-          Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlboton);
-     }
+        posicion = pnlMenu.getX();
+        if (posicion != -80) {
+            Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlMenu);
+            Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlboton);
+        }
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        new CambiaPanel(pnlPrincipal ,new  panelProveedor());
+        new CambiaPanel(pnlPrincipal, new panelProveedor());
         posicion = pnlMenu.getX();
-        if(posicion !=-80){
-          Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlMenu);
-           Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlboton);
-     }
+        if (posicion != -80) {
+            Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlMenu);
+            Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlboton);
+        }
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-       new CambiaPanel(pnlPrincipal ,new  panelCliente());
-       posicion = pnlMenu.getX();
-       if(posicion !=-80){
-          Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlMenu);
-           Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlboton);
-     }
+        new CambiaPanel(pnlPrincipal, new panelCliente());
+        posicion = pnlMenu.getX();
+        if (posicion != -80) {
+            Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlMenu);
+            Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlboton);
+        }
     }//GEN-LAST:event_jButton11ActionPerformed
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
