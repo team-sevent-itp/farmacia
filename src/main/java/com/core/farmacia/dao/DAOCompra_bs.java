@@ -5,13 +5,12 @@
  */
 package com.core.farmacia.dao;
 
-import com.core.farmacia.model.Presentacion;
-import java.util.List;
+import com.core.farmacia.model.Ent_compra_bs;
 
 /**
  *
  * @author nuevo
  */
-public interface DAOPresentacion extends DAOGenerico<Presentacion, Integer>{
-    public List<Presentacion> vw_presentacion(int ini, int lim, String value) throws DAOException;;
+public interface DAOCompra_bs extends DAOGenerico<Ent_compra_bs, Integer>{
+    
 }

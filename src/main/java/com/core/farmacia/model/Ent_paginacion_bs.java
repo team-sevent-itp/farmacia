@@ -38,6 +38,17 @@ public class Ent_paginacion_bs {
     }
 
     public Ent_paginacion_bs() {
+        this.id = 0;
+        this.nombre_producto = "";
+        this.cantidad = 0;
+        this.iva = 0D;
+        this.precio_uds_venta = 0D;
+        this.nombre_presentacion = "";
+        this.margen_de_ganancia = 0D;
+        this.laboratorio = "";
+        this.invima = "";
+        this.linea = "";
+        
     }
 
     @Override

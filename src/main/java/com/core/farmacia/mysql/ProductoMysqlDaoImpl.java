@@ -27,6 +27,7 @@ import java.util.logging.Logger;
  *
  * @author nuevo
  */
+/*
 public class ProductoMysqlDaoImpl implements DAOProducto {
 
     private String INSERT = "INSERT INTO linea_producto(nombre) VALUES(?)";
@@ -246,3 +247,4 @@ public class ProductoMysqlDaoImpl implements DAOProducto {
     }
 
 }
+*/

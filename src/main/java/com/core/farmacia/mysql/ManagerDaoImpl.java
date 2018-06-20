@@ -7,6 +7,7 @@ package com.core.farmacia.mysql;
 
 import com.core.farmacia.dao.DAOCliente;
 import com.core.farmacia.dao.DAOCompra;
+import com.core.farmacia.dao.DAOCompra_bs;
 import com.core.farmacia.dao.DAODepartamento;
 import com.core.farmacia.dao.DAOGenero;
 import com.core.farmacia.dao.DAOLaboratorio;
@@ -28,8 +29,8 @@ import java.sql.SQLException;
  *
  * @author nuevo
  */
-public class ManagerDaoImpl implements DAOManager{
-    
+public class ManagerDaoImpl implements DAOManager {
+
     DAOProducto productos = null;
     DAOCompra compras = null;
     DAOProveedor proveedores = null;
@@ -40,27 +41,26 @@ public class ManagerDaoImpl implements DAOManager{
     DAODepartamento departamentos = null;
     DAOMunicipio municipios = null;
     DAOPaginacionBs paginacion = null;
-    
+    DAOCompra_bs compra_bs = null;
+
     Connection conn;
-    
+
     public ManagerDaoImpl(String host, String db, String user, String pass) throws SQLException {
         conn = DriverManager.getConnection("jdbc:mysql://" + host + "/" + db, user, pass);
-    }    
-    
-    
-    
+    }
+
     @Override
     public DAOCompra comprar() {
-        
-        if(compras == null){
+
+        if (compras == null) {
             compras = new CompraMysqlDaoImpl(conn, this);
-        }        
-        return compras;        
+        }
+        return compras;
     }
 
     @Override
     public DAORegistroCompra registrarCompra() {
-        if(registroCompras == null){
+        if (registroCompras == null) {
             registroCompras = new RegistroCompraMysqlDaoImpl(conn, this);
         }
         return registroCompras;
@@ -78,7 +78,7 @@ public class ManagerDaoImpl implements DAOManager{
 
     @Override
     public DAOProducto crearProducto() {
-        if(productos == null){
+        if (productos == null) {
             productos = new ProductoMysqlDaoImpl(conn, this);
         }
         return productos;
@@ -91,7 +91,7 @@ public class ManagerDaoImpl implements DAOManager{
 
     @Override
     public DAOProveedor crearProveedor() {
-        if(proveedores == null){
+        if (proveedores == null) {
             proveedores = new ProveedorMysqlDaoImpl(conn, this);
         }
         return proveedores;
@@ -99,7 +99,7 @@ public class ManagerDaoImpl implements DAOManager{
 
     @Override
     public DAOLaboratorio crearLaboratorio() {
-        if(laboratorios == null){
+        if (laboratorios == null) {
             laboratorios = new LaboratorioMysqlDaoImpl(conn);
         }
         return laboratorios;
@@ -107,7 +107,7 @@ public class ManagerDaoImpl implements DAOManager{
 
     @Override
     public DAOPresentacion crearPresentacion() {
-        if(presentaciones == null){
+        if (presentaciones == null) {
             presentaciones = new PresentacionMysqlDaoImpl(conn);
         }
         return presentaciones;
@@ -120,17 +120,17 @@ public class ManagerDaoImpl implements DAOManager{
 
     @Override
     public DAOMunicipio crearMunicipio() {
-        
-        if(municipios == null){
+
+        if (municipios == null) {
             municipios = new MunicipioMysqlDaoImpl(conn, this);
         }
-        
+
         return municipios;
     }
 
     @Override
     public DAODepartamento crearDepartamento() {
-        if(departamentos == null){
+        if (departamentos == null) {
             departamentos = new DepartamentoMysqlDaoImpl(conn);
         }
         return departamentos;
@@ -138,20 +138,29 @@ public class ManagerDaoImpl implements DAOManager{
 
     @Override
     public DAOLineaProducto crearLineaProducto() {
-        
-        if(lineaProductos == null){
+
+        if (lineaProductos == null) {
             lineaProductos = new LineaProductoMysqlDaoImpl(conn);
-        }        
+        }
         return lineaProductos;
     }
 
     @Override
     public DAOPaginacionBs crearPaginacion() {
-        if(paginacion == null){
+        if (paginacion == null) {
             paginacion = new EntPaginacionBusquedaDaoImpl(conn);
         }
         return paginacion;
-        
+
     }
-    
+
+    @Override
+    public DAOCompra_bs crearCompraBs() {
+        if (compra_bs == null) {
+            compra_bs = new EntCompraBs(conn);
+        }
+        return compra_bs;
+
+    }
+
 }

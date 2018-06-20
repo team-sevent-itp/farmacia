@@ -72,7 +72,7 @@ public class LineaProducto {
 
     @Override
     public String toString() {
-        return "LineaProducto{" + "id=" + id + ", nombre=" + nombre + '}';
+        return nombre;
     }
         
     

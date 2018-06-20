@@ -3,6 +3,7 @@ package com.core.farmacia;
 import com.core.farmacia.dao.DAOException;
 import com.core.farmacia.dao.DAOManager;
 import com.core.farmacia.model.BusquedaCombo;
+import com.core.farmacia.model.Ent_compra_bs;
 import com.core.farmacia.model.Ent_paginacion_bs;
 import com.core.farmacia.model.Laboratorio;
 import com.core.farmacia.model.LineaProducto;
@@ -10,6 +11,8 @@ import com.core.farmacia.model.Presentacion;
 import com.core.farmacia.model.Producto;
 import com.core.farmacia.mysql.ManagerDaoImpl;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import principal.prinPnl;
@@ -33,9 +36,9 @@ public class App {
         Presentacion pre = new Presentacion();
         List<BusquedaCombo> listCombo = new ArrayList<>();
         Producto producto = new Producto();
-        
+
         List<Producto> p = new ArrayList<>();
-        
+
         List<Ent_paginacion_bs> list_page = new ArrayList<>();
 
         try {
@@ -73,8 +76,18 @@ public class App {
 
             prinPnl principal = new prinPnl(manager);
             principal.setVisible(true);
-            
-           /* list_page = manager.crearPaginacion().p    long startTime = System.nanoTime();
+            /*List<Presentacion> present = manager.crearPresentacion().vw_presentacion(0, 10, "");
+           present.stream().forEach(ob->{
+               System.out.println(ob.toString());
+           
+           });*/
+
+ /*Ent_compra_bs compra = new Ent_compra_bs();
+            compra.setProveedor("1");
+            compra.setFactura("111-1");
+            manager.crearCompraBs().ingresar(compra);
+             */
+ /* list_page = manager.crearPaginacion().p    long startTime = System.nanoTime();
 
             prinPnl principal = new prinPnl(manager);
             principal.setVisible(true);
@@ -83,14 +96,11 @@ public class App {
             list_page.stream().forEach(ob -> {
                 System.out.println(ob.toString());
             });
-            */
-            
-            
-          /*  p = manager.crearProducto().getBusqueda("ZIFLUVIS");
+             */
+ /*  p = manager.crearProducto().getBusqueda("ZIFLUVIS");
             p.stream().forEach(ob -> {
                 System.out.println(ob.toString());
             });*/
-
             //producto = productList.get(0);
             //System.out.println(producto.toString());
             long endTime = System.nanoTime() - startTime;

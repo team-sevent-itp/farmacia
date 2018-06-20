@@ -25,5 +25,5 @@ public interface DAOManager {
     DAODepartamento crearDepartamento();
     DAOLineaProducto crearLineaProducto();
     DAOPaginacionBs crearPaginacion();
-    
+    DAOCompra_bs crearCompraBs();
 }

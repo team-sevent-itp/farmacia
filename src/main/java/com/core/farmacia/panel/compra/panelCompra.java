@@ -1,344 +1,491 @@
 package com.core.farmacia.panel.compra;
 
+import com.mxrck.autocompleter.TextAutoCompleter;
 import com.core.farmacia.dao.DAOException;
 import com.core.farmacia.dao.DAOManager;
 import com.core.farmacia.model.Ent_paginacion_bs;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import com.core.farmacia.model.Laboratorio;
+import com.core.farmacia.model.Presentacion;
+import com.mxrck.autocompleter.AutoCompleterCallback;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JComponent;
-import javax.swing.border.EmptyBorder;
 
 /**
- *
  * @author desconocido
  */
 public class panelCompra extends javax.swing.JPanel {
-
+    
     DAOManager manager;
     comboBusquedaModel modelCombo;
-
+    TextAutoCompleter textAutoAcompleter;
+    TextAutoCompleter present;
+    TextAutoCompleter lab;
+    List<Ent_paginacion_bs> paginacionProduc;
+    List<Laboratorio> laboratoriosList;
+    List<Presentacion> presentacionesList;
+    Laboratorio laboratorioOb;
+    Presentacion presentacionOb;
+    Ent_paginacion_bs productoInventario;
+    boolean productoAntiguo;
+    
     public panelCompra(DAOManager manager) throws DAOException {
         initComponents();
         this.manager = manager;
-        comboUI();
-        //modelCombo.update(0, 10, "A");
-        //comboBusqueda.setModel(modelCombo);
-        modelCombo = new comboBusquedaModel(manager.crearPaginacion());
-
-        comboBusqueda.getEditor().getEditorComponent().addKeyListener(new KeyAdapter() {
-
+        desbloquearCampos(false);
+        productoAntiguo = false;
+        
+        textAutoAcompleter = new TextAutoCompleter(text_busca, new AutoCompleterCallback() {
             @Override
-            public void keyReleased(KeyEvent evt) {
-
-                String cadenaEscrita = comboBusqueda.getEditor().getItem().toString();
-
-                if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-                    if (comparar(cadenaEscrita)) {
-                        Ent_paginacion_bs busqueda = (Ent_paginacion_bs) comboBusqueda.getSelectedItem();
-                        
-                    }
-                }
-                if (evt.getKeyCode() >= 65 && evt.getKeyCode() <= 90 || evt.getKeyCode() >= 96 && evt.getKeyCode() <= 105 || evt.getKeyCode() == 8) {
-                    try {
-                        modelCombo.update(0, 10, cadenaEscrita.toUpperCase());
-                        comboBusqueda.setModel(modelCombo);
-                        if (comboBusqueda.getItemCount() > 0) {
-                            comboBusqueda.getEditor().setItem(cadenaEscrita);
-                            comboBusqueda.showPopup();
-                        } else {
-                            Ent_paginacion_bs bs = new Ent_paginacion_bs();
-                            bs.setNombre_producto(cadenaEscrita);
-                            comboBusqueda.addItem(bs);
-                        }
-
-                    } catch (DAOException ex) {
-                        Logger.getLogger(panelCompra.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-
-                }
+            public void callback(Object selectedItem) {
+                //System.out.println("El usuario seleccionó: " + selectedItem.toString());
+                productoInventario = (Ent_paginacion_bs) selectedItem;
+                mostrarDatosProducto();
+                productoAntiguo = true;
             }
         });
+        
+        present = new TextAutoCompleter(presentacion, new AutoCompleterCallback() {
+            @Override
+            public void callback(Object selectedItem) {
+                //System.out.println("El usuario seleccionó: " + selectedItem.toString());
+                presentacionOb = (Presentacion) selectedItem;
+            }
+        });
+        lab = new TextAutoCompleter(laboratorio, new AutoCompleterCallback() {
+            @Override
+            public void callback(Object selectedItem) {
+                //System.out.println("El usuario seleccionó: " + selectedItem.toString());
+                laboratorioOb = (Laboratorio) selectedItem;
+            }
+        });
+        
+        textAutoAcompleter.setCaseSensitive(false);
+        textAutoAcompleter.setMode(0);
+        present.setCaseSensitive(false);
+        present.setMode(0);
+        lab.setCaseSensitive(false);
+        lab.setMode(0);
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        nuevo = new javax.swing.JButton();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        nuevaCompra = new javax.swing.JPanel();
+        compraProduc = new javax.swing.JPanel();
+        factura = new javax.swing.JFormattedTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        proveedor = new javax.swing.JTextField();
+        continuar = new javax.swing.JButton();
+        producCampos = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
-        jFormattedTextField3 = new javax.swing.JFormattedTextField();
+        invima = new javax.swing.JFormattedTextField();
+        precio = new javax.swing.JFormattedTextField();
         jLabel7 = new javax.swing.JLabel();
-        jFormattedTextField4 = new javax.swing.JFormattedTextField();
+        unidades = new javax.swing.JFormattedTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jFormattedTextField6 = new javax.swing.JFormattedTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jFormattedTextField7 = new javax.swing.JFormattedTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        iva = new javax.swing.JFormattedTextField();
+        total = new javax.swing.JTextField();
+        lineaProducto = new javax.swing.JTextField();
+        nombre = new javax.swing.JFormattedTextField();
+        subTotal = new javax.swing.JTextField();
+        text_busca = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        agregar = new javax.swing.JButton();
+        terminar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        comboBusqueda = new javax.swing.JComboBox<>();
-
-        jButton1.setText("Nuevo");
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.setEnabled(false);
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setText("Nombre:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Precio:");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 50, -1));
-        jPanel2.add(jFormattedTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 135, -1));
-        jPanel2.add(jFormattedTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, 120, -1));
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setText("Unidades:");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, -1, 20));
-        jPanel2.add(jFormattedTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, 120, -1));
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel8.setText("Iva:");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 32, -1));
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel9.setText("Fecha Vencimineto:");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, -1, -1));
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel10.setText("Lote:");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
-
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel11.setText("Sub Total:");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, -1, -1));
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel12.setText("Total:");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, -1, -1));
-
-        jFormattedTextField6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField6ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jFormattedTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 120, -1));
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 121, -1));
-        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 110, 120, -1));
-        jPanel2.add(jFormattedTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 690, -1));
-        jPanel2.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 121, -1));
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        lote = new javax.swing.JFormattedTextField();
+        presentacion = new javax.swing.JFormattedTextField();
+        laboratorio = new javax.swing.JFormattedTextField();
+        fechaVencimiento = new javax.swing.JTextField();
+        RegistroCompra = new javax.swing.JPanel();
 
         jButton2.setText("Registrar");
 
+        nuevo.setText("Nuevo");
+
+        compraProduc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        compraProduc.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        compraProduc.add(factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 143, -1));
+
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Proveedor");
-
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel13.setText("Fecha:");
+        compraProduc.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, -1, 20));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("N° Factura:");
+        compraProduc.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+        compraProduc.add(proveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 417, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addContainerGap())
-        );
-
-        jPanel3.setBackground(new java.awt.Color(245, 236, 236));
-
-        comboBusqueda.setEditable(true);
-        comboBusqueda.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                comboBusquedaKeyReleased(evt);
+        continuar.setText("Continuar");
+        continuar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                continuarActionPerformed(evt);
             }
         });
+        compraProduc.add(continuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 80, -1, -1));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        producCampos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        producCampos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setText("Nombre:");
+        producCampos.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setText("Precio:");
+        producCampos.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 50, -1));
+        producCampos.add(invima, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 135, -1));
+        producCampos.add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 120, -1));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setText("Unidades:");
+        producCampos.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, -1, 20));
+        producCampos.add(unidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 120, 120, -1));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setText("Iva:");
+        producCampos.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, 32, -1));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setText("Fecha Vencimineto:");
+        producCampos.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel10.setText("Lote:");
+        producCampos.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel11.setText("Sub Total:");
+        producCampos.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel12.setText("Total:");
+        producCampos.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, -1, -1));
+
+        iva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ivaActionPerformed(evt);
+            }
+        });
+        producCampos.add(iva, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 120, -1));
+
+        total.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totalActionPerformed(evt);
+            }
+        });
+        producCampos.add(total, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 121, -1));
+        producCampos.add(lineaProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 180, 120, -1));
+        producCampos.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 690, -1));
+        producCampos.add(subTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 180, 121, -1));
+
+        text_busca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                text_buscaKeyReleased(evt);
+            }
+        });
+        producCampos.add(text_busca, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 690, -1));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("Buscar: ");
+        producCampos.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+
+        agregar.setText("Agregar");
+        agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarActionPerformed(evt);
+            }
+        });
+        producCampos.add(agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, -1, -1));
+
+        terminar.setText("Terminar Compra");
+        terminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                terminarActionPerformed(evt);
+            }
+        });
+        producCampos.add(terminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 310, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setText("Presentacion:");
+        producCampos.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel13.setText("Laboratorio:");
+        producCampos.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel14.setText("Invima:");
+        producCampos.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel15.setText("Linea Producto:");
+        producCampos.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, -1, -1));
+        producCampos.add(lote, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 135, -1));
+
+        presentacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                presentacionKeyReleased(evt);
+            }
+        });
+        producCampos.add(presentacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 135, -1));
+
+        laboratorio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                laboratorioKeyReleased(evt);
+            }
+        });
+        producCampos.add(laboratorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 135, -1));
+        producCampos.add(fechaVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 150, 120, -1));
+
+        javax.swing.GroupLayout nuevaCompraLayout = new javax.swing.GroupLayout(nuevaCompra);
+        nuevaCompra.setLayout(nuevaCompraLayout);
+        nuevaCompraLayout.setHorizontalGroup(
+            nuevaCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nuevaCompraLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(comboBusqueda, 0, 459, Short.MAX_VALUE)
+                .addGroup(nuevaCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(compraProduc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(producCampos, javax.swing.GroupLayout.DEFAULT_SIZE, 901, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        nuevaCompraLayout.setVerticalGroup(
+            nuevaCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(nuevaCompraLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(comboBusqueda, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                .addComponent(compraProduc, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(producCampos, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        jTabbedPane1.addTab("Nueva Compra", nuevaCompra);
+
+        javax.swing.GroupLayout RegistroCompraLayout = new javax.swing.GroupLayout(RegistroCompra);
+        RegistroCompra.setLayout(RegistroCompraLayout);
+        RegistroCompraLayout.setHorizontalGroup(
+            RegistroCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 921, Short.MAX_VALUE)
+        );
+        RegistroCompraLayout.setVerticalGroup(
+            RegistroCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 503, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Registro Compra", RegistroCompra);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(56, 56, 56)
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, 0)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void totalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_totalActionPerformed
 
-    private void jFormattedTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField6ActionPerformed
+    private void ivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ivaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField6ActionPerformed
+    }//GEN-LAST:event_ivaActionPerformed
 
     private void comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void comboBusquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_comboBusquedaKeyReleased
-
-
-    }//GEN-LAST:event_comboBusquedaKeyReleased
-
-    private boolean comparar(String cadena) {
-        Object[] lista = comboBusqueda.getComponents();
-        boolean encontrado = false;
-        for (Object object : lista) {
-            if (cadena.equals(object)) {
-                encontrado = true;
-                break;
-            }
-
+    private void continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuarActionPerformed
+        if (!"".equals(factura.getText()) && !"".equals(proveedor.getText())) {
+            desbloquearCampos(true);
         }
-        return encontrado;
+    }//GEN-LAST:event_continuarActionPerformed
+
+    private void text_buscaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_buscaKeyReleased
+        try {
+            paginacionProduc = manager.crearPaginacion().paginacion_producto(0, 10, text_busca.getText().trim());
+            paginacionProduc.stream().forEach(ob -> {
+                if (!textAutoAcompleter.itemExists(ob)) {
+                    textAutoAcompleter.addItem(ob);
+                }
+            });
+        } catch (DAOException ex) {
+            Logger.getLogger(panelCompra.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_text_buscaKeyReleased
+
+    private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
+        if(productoAntiguo){
+            //Aqui realizamos la insercion de la tabla compra
+            
+            //Obtenemos el id del producto
+            //Realizamos la insercion la tabla compra producto
+            
+            //Aqui realizamos el update
+            
+        }else{
+            //Aqui realizamos la insercion
+        }
+        
+        productoAntiguo = false;
+        vaciarCamposProduc();
+    }//GEN-LAST:event_agregarActionPerformed
+
+    private void terminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_terminarActionPerformed
+        vaciarCampos();
+        desbloquearCampos(false);
+
+    }//GEN-LAST:event_terminarActionPerformed
+
+    private void presentacionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_presentacionKeyReleased
+        try {
+            presentacionesList = manager.crearPresentacion().vw_presentacion(0, 10, presentacion.getText().trim());
+            presentacionesList.stream().forEach(ob -> {
+                if (!present.itemExists(ob)) {
+                    present.addItem(ob);
+                }
+            });
+        } catch (DAOException ex) {
+            Logger.getLogger(panelCompra.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_presentacionKeyReleased
+
+    private void laboratorioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_laboratorioKeyReleased
+        try {
+            laboratoriosList = manager.crearLaboratorio().vw_laboratorio(0, 10, laboratorio.getText().trim());
+            laboratoriosList.stream().forEach(ob -> {
+                if (!lab.itemExists(ob)) {
+                    lab.addItem(ob);
+                }
+            });
+        } catch (DAOException ex) {
+            Logger.getLogger(panelCompra.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_laboratorioKeyReleased
+    private void mostrarDatosProducto() {
+        
+        nombre.setText(productoInventario.getNombre_producto());
+        precio.setText("" + productoInventario.getPrecio_uds_venta());
+        iva.setText("" + productoInventario.getIva());
+        unidades.setText("" + productoInventario.getCantidad());
+        laboratorio.setText("" + productoInventario.getLaboratorio());
+        presentacion.setText("" + productoInventario.getNombre_presentacion());
+        lineaProducto.setText(productoInventario.getLinea());
+        invima.setText(productoInventario.getInvima());
+        
     }
-
-    public void comboUI() {
-        Color c = new Color(245, 236, 236);
-        JComponent rootPane = null;
-        comboBusqueda.setUI(Propiedades.createUI(rootPane));
-        //((JLabel) combo.getRenderer()).setHorizontalAlignment(SwingConstants.RIGHT);
-        Dimension dimension = new Dimension(200, 32);
-        comboBusqueda.setPreferredSize(dimension);
-        comboBusqueda.setSize(dimension);
-        //combo.setForeground(Color.WHITE);
-        comboBusqueda.setBorder(new EmptyBorder(0, 0, 0, 0));
-        comboBusqueda.getEditor().getEditorComponent().setBackground(c);
-
+    
+    private void desbloquearCampos(boolean value) {
+        text_busca.setEnabled(value);
+        nombre.setEnabled(value);
+        invima.setEnabled(value);
+        precio.setEnabled(value);
+        iva.setEnabled(value);
+        subTotal.setEnabled(value);
+        total.setEditable(value);
+        unidades.setEnabled(value);
+        lineaProducto.setEditable(value);
+        fechaVencimiento.setEditable(value);
+        laboratorio.setEditable(value);
+        lote.setEditable(value);
+        presentacion.setEditable(value);
+        
     }
-
-
+    
+    private void vaciarCampos() {
+        text_busca.setText("");
+        nombre.setText("");
+        invima.setText("");
+        precio.setText("");
+        iva.setText("");
+        subTotal.setText("");
+        total.setText("");
+        unidades.setText("");
+        lineaProducto.setText("");
+        factura.setText("");
+        proveedor.setText("");
+        presentacion.setText("");
+        laboratorio.setText("");
+    }
+    
+    private void vaciarCamposProduc() {
+        text_busca.setText("");
+        nombre.setText("");
+        invima.setText("");
+        precio.setText("");
+        iva.setText("");
+        subTotal.setText("");
+        total.setText("");
+        unidades.setText("");
+        lineaProducto.setText("");
+        presentacion.setText("");
+        laboratorio.setText("");
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> combo1;
-    private javax.swing.JComboBox<String> combo2;
-    private javax.swing.JComboBox<Ent_paginacion_bs> comboBusqueda;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel RegistroCompra;
+    private javax.swing.JButton agregar;
+    private javax.swing.JPanel compraProduc;
+    private javax.swing.JButton continuar;
+    private javax.swing.JFormattedTextField factura;
+    private javax.swing.JTextField fechaVencimiento;
+    private javax.swing.JFormattedTextField invima;
+    private javax.swing.JFormattedTextField iva;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
-    private javax.swing.JFormattedTextField jFormattedTextField3;
-    private javax.swing.JFormattedTextField jFormattedTextField4;
-    private javax.swing.JFormattedTextField jFormattedTextField6;
-    private javax.swing.JFormattedTextField jFormattedTextField7;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JFormattedTextField laboratorio;
+    private javax.swing.JTextField lineaProducto;
+    private javax.swing.JFormattedTextField lote;
+    private javax.swing.JFormattedTextField nombre;
+    private javax.swing.JPanel nuevaCompra;
+    private javax.swing.JButton nuevo;
+    private javax.swing.JFormattedTextField precio;
+    private javax.swing.JFormattedTextField presentacion;
+    private javax.swing.JPanel producCampos;
+    private javax.swing.JTextField proveedor;
+    private javax.swing.JTextField subTotal;
+    private javax.swing.JButton terminar;
+    private javax.swing.JTextField text_busca;
+    private javax.swing.JTextField total;
+    private javax.swing.JFormattedTextField unidades;
     // End of variables declaration//GEN-END:variables
 }

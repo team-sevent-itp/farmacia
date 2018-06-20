@@ -6,11 +6,14 @@
 package com.core.farmacia.dao;
 
 import com.core.farmacia.model.Laboratorio;
+import java.util.List;
 
 /**
  *
  * @author nuevo
  */
-public interface DAOLaboratorio extends DAOGenerico<Laboratorio, Long>{
-    
+public interface DAOLaboratorio extends DAOGenerico<Laboratorio, Integer> {
+
+    public List<Laboratorio> vw_laboratorio(int ini, int lim, String value)throws DAOException;;
+
 }

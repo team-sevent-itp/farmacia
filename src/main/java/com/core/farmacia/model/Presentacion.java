@@ -12,24 +12,25 @@ import java.util.Objects;
  * @author nuevo
  */
 public class Presentacion {
-    private long id;
+
+    private int id;
     private String nombre;
 
-    public Presentacion(long id, String nombre) {
+    public Presentacion(int id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }
 
     public Presentacion() {
-        this.id=0L;
-        this.nombre="";
+        this.id = 0;
+        this.nombre = "";
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 71 * hash + (int) (this.id ^ (this.id >>> 32));
-        hash = 71 * hash + Objects.hashCode(this.nombre);
+        hash = 59 * hash + this.id;
+        hash = 59 * hash + Objects.hashCode(this.nombre);
         return hash;
     }
 
@@ -58,7 +59,7 @@ public class Presentacion {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -72,9 +73,7 @@ public class Presentacion {
 
     @Override
     public String toString() {
-        return "Presentacion{" + "id=" + id + ", nombre=" + nombre + '}';
+        return nombre;
     }
-    
-    
-    
+
 }
