@@ -243,7 +243,11 @@ public class prinPnl extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        new CambiaPanel(pnlPrincipal, new panelProveedor());
+        try {
+            new CambiaPanel(pnlPrincipal, new panelProveedor(manager));
+        } catch (DAOException ex) {
+            Logger.getLogger(prinPnl.class.getName()).log(Level.SEVERE, null, ex);
+        }
         posicion = pnlMenu.getX();
         if (posicion != -80) {
             Animacion.Animacion.mover_izquierda(0, -80, 2, 2, pnlMenu);

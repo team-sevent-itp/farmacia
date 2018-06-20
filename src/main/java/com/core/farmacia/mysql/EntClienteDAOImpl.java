@@ -1,9 +1,10 @@
 
 package com.core.farmacia.mysql;
 
+
+import com.core.farmacia.dao.DAOClienteBs;
 import com.core.farmacia.dao.DAOException;
-import com.core.farmacia.dao.DAOPaginacionBs;
-import com.core.farmacia.model.Ent_paginacion_bs;
+import com.core.farmacia.model.Ent_cliente_bs;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,49 +15,49 @@ import java.util.List;
 
 /**
  *
- * @author nuevo
+ * @author desconocido
  */
-public class EntPaginacionBusquedaDaoImpl implements DAOPaginacionBs {
-
-    private String GETSEARCH = "{call ps_paginacion_bs(?, ?, ?)}";
-    private String NPAGES = "SELECT FOUND_ROWS() AS cnt";
+public class EntClienteDAOImpl implements DAOClienteBs {
     
+    private String GETSEARCH = "{call ps_proveedor_bs(?, ?, ?)}";
+    private String NPAGES = "SELECT FOUND_ROWS() AS cnt";
     
     Connection conn;
 
-    public EntPaginacionBusquedaDaoImpl(Connection conn) {
+    public EntClienteDAOImpl(Connection conn) {
         this.conn = conn;
     }
 
+    
+
     @Override
-    public void ingresar(Ent_paginacion_bs o) throws DAOException {
+    public void ingresar(Ent_cliente_bs o) throws DAOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void actualizar(Ent_paginacion_bs o) throws DAOException {
+    public void actualizar(Ent_cliente_bs o) throws DAOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void eliminar(Ent_paginacion_bs o) throws DAOException {
+    public void eliminar(Ent_cliente_bs o) throws DAOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<Ent_paginacion_bs> getAll() throws DAOException {
+    public List<Ent_cliente_bs> getAll() throws DAOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Ent_paginacion_bs getOne(Integer o) throws DAOException {
+    public Ent_cliente_bs getOne(Integer o) throws DAOException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
     @Override
-    public List<Ent_paginacion_bs> paginacion_producto(int limite_ini, int limite_superior, String value) throws DAOException {
-
-        List<Ent_paginacion_bs> list = new ArrayList<>();
+    public List<Ent_cliente_bs> paginacion_clinte(int limite_ini, int limite_superior, String value) throws DAOException {
+       List<Ent_cliente_bs> list = new ArrayList<>();
         CallableStatement stact = null;
         ResultSet rs = null;
 
@@ -71,10 +72,9 @@ public class EntPaginacionBusquedaDaoImpl implements DAOPaginacionBs {
 
             
             while (rs.next()) {
-                Ent_paginacion_bs paginacionOb= new Ent_paginacion_bs(rs.getInt("id"), 
-                       rs.getString("nombre_producto") , rs.getInt("cantidad"), rs.getDouble("iva"),
-                        rs.getDouble("precio_uds_venta"), rs.getDouble("margen_de_ganancia"),
-                        rs.getString("NombrePresentacion"), rs.getString("Laboratorio"), rs.getString("invima"), rs.getString("Linea"));
+                Ent_cliente_bs paginacionOb= new Ent_cliente_bs(rs.getInt("id"), 
+                       rs.getString("nombres") , rs.getString("apellidos"),rs.getString("sexo"),rs.getString("telefono1"),rs.getString("telefono2"),
+                rs.getString("municipio"));
                
                 list.add(paginacionOb);
             }
@@ -104,8 +104,8 @@ public class EntPaginacionBusquedaDaoImpl implements DAOPaginacionBs {
     }
 
     @Override
-    public int cantidadRegistros() {
-        int nPages = 0;
+    public int cantidadRegistrosCliente() {
+         int nPages = 0;
         PreparedStatement stact = null;
         ResultSet rs = null;
 
@@ -137,5 +137,5 @@ public class EntPaginacionBusquedaDaoImpl implements DAOPaginacionBs {
 
         return nPages;
     }
-
+    
 }

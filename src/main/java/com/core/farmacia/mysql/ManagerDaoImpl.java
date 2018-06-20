@@ -17,6 +17,7 @@ import com.core.farmacia.dao.DAOPaginacionBs;
 import com.core.farmacia.dao.DAOPresentacion;
 import com.core.farmacia.dao.DAOProducto;
 import com.core.farmacia.dao.DAOProveedor;
+import com.core.farmacia.dao.DAOProveedorBs;
 import com.core.farmacia.dao.DAORegistroCompra;
 import com.core.farmacia.dao.DAORegistroVenta;
 import com.core.farmacia.dao.DAOVenta;
@@ -32,7 +33,8 @@ public class ManagerDaoImpl implements DAOManager{
     
     DAOProducto productos = null;
     DAOCompra compras = null;
-    DAOProveedor proveedores = null;
+    DAOProveedorBs proveedores = null;
+    DAOProveedor proveedores1 = null;
     DAORegistroCompra registroCompras = null;
     DAOPresentacion presentaciones = null;
     DAOLaboratorio laboratorios = null;
@@ -40,6 +42,7 @@ public class ManagerDaoImpl implements DAOManager{
     DAODepartamento departamentos = null;
     DAOMunicipio municipios = null;
     DAOPaginacionBs paginacion = null;
+    
     
     Connection conn;
     
@@ -90,9 +93,9 @@ public class ManagerDaoImpl implements DAOManager{
     }
 
     @Override
-    public DAOProveedor crearProveedor() {
+    public DAOProveedorBs crearProveedor() {
         if(proveedores == null){
-            proveedores = new ProveedorMysqlDaoImpl(conn, this);
+            proveedores = new EntProveedorDaoImpl(conn);
         }
         return proveedores;
     }
@@ -153,5 +156,11 @@ public class ManagerDaoImpl implements DAOManager{
         return paginacion;
         
     }
-    
+     @Override
+    public DAOProveedor crearProveedor1() {
+        if(proveedores1 == null){
+            proveedores1 = new ProveedorMysqlDaoImpl(conn,this);
+        }
+        return proveedores1;
+    }
 }

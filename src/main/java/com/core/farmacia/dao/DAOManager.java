@@ -17,7 +17,7 @@ public interface DAOManager {
     DAOVenta crearVenta();
     DAOProducto crearProducto();
     DAOCliente crearCliente();
-    DAOProveedor crearProveedor();
+    DAOProveedorBs crearProveedor();
     DAOLaboratorio crearLaboratorio();
     DAOPresentacion crearPresentacion();
     DAOGenero crearGenero();
@@ -25,5 +25,7 @@ public interface DAOManager {
     DAODepartamento crearDepartamento();
     DAOLineaProducto crearLineaProducto();
     DAOPaginacionBs crearPaginacion();
+    DAOProveedor crearProveedor1();
+    
     
 }

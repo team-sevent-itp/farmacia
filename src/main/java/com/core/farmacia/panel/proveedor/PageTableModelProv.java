@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.core.farmacia.panel.cliente;
+package com.core.farmacia.panel.proveedor;
 
-import com.core.farmacia.dao.DAOClienteBs;
 import com.core.farmacia.dao.DAOException;
-import com.core.farmacia.model.Ent_cliente_bs;
+import com.core.farmacia.dao.DAOProveedorBs;
+import com.core.farmacia.model.Ent_proveedor_bs;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -16,20 +16,21 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author edin-
  */
-public class clienteTableModel extends AbstractTableModel{
+public class PageTableModelProv extends AbstractTableModel{
 
     
-    
-     DAOClienteBs page = null;
-    List<Ent_cliente_bs> listAN = new ArrayList<>();
+    DAOProveedorBs page = null;
+    List<Ent_proveedor_bs> listAN = new ArrayList<>();
 
-    public clienteTableModel(DAOClienteBs page) {
+    public PageTableModelProv(DAOProveedorBs page) {
         this.page = page;
     }
 
     public void update(int ini, int fin, String value) throws DAOException {
-        listAN = page.paginacion_clinte(ini, fin, value);
+        listAN = page.paginacion_proveedor(ini, fin, value);
     }
+    
+    
      @Override
 
     public String getColumnName(int column) {
@@ -37,50 +38,46 @@ public class clienteTableModel extends AbstractTableModel{
             case 0:
                 return "Nombre";
             case 1:
-                return "sexo";
+                return "Telefóno1";
             case 2:
                 return "Telefóno2";
             case 3:
-                return "Telefóno1";
-            case 4:
-                return "municipio";
+                return "Municipio";
             default:
                 return "NN";
         }
     }
+
+   
     @Override
     public int getRowCount() {
-         return listAN.size();
+        return listAN.size();
     }
-
-    @Override
-    public int getColumnCount() {
-       return 5;
-    }
-
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-      Ent_cliente_bs pagination = listAN.get(rowIndex);
+        Ent_proveedor_bs pagination = listAN.get(rowIndex);
 
         switch (columnIndex) {
             case 0:
-                return pagination.getApellidos();
+                return pagination.getNombre();
             case 1:
-                return pagination.getNombres();
-           
+                return pagination.getNumero1();
             case 2:
-                return pagination.getSexo();
+                return pagination.getNumero2();
             case 3:
-                return pagination.getTelefono1();
-            case 4:
-                return pagination.getTelefono2();
-            case 5:
-                return pagination.getMunicipio();
+                return pagination.getId_municipio();
             default:
                 return "";
         }
     }
+
+    @Override
+    public int getColumnCount() {
+        return 4;
+    }
+
+  
     
-    
+   
     
 }

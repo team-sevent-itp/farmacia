@@ -40,7 +40,7 @@ public class App {
 
         try {
             
-           DAOManager manager = new ManagerDaoImpl("localhost:3306", "farmacia", "root", "123456789");
+           DAOManager manager = new ManagerDaoImpl("localhost:3306", "farmacia_popular", "root", "123456789");
            // DAOManager manager = new ManagerDaoImpl("192.168.1.10:3306", "farmacia_popular_d", "kelium", "kelium");
             //manager.crearLineaProducto().ingresar(tipo);
             //manager.crearLineaProducto().actualizar(tipo);
