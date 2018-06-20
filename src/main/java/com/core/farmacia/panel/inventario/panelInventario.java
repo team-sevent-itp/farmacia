@@ -190,6 +190,8 @@ public class panelInventario extends javax.swing.JPanel {
     }
 
     private void _all_registros() {
+        pagPrimera.setEnabled(true);
+        pagFinal.setEnabled(true);
         this.paginas.removeAll();
         listPaginacion = new ArrayList<>();
         paginaActual = 0;
@@ -212,7 +214,9 @@ public class panelInventario extends javax.swing.JPanel {
     }
 
     private void _add_object() {
-
+        
+        
+        
         totalPag = lim / pag;
 
         if (lim % pag != 0) {
@@ -267,6 +271,14 @@ public class panelInventario extends javax.swing.JPanel {
         }
 
         this.paginas.updateUI();
+        if (rangoPaginas <= 1) {
+            anterior.setEnabled(false);
+            siguiente.setEnabled(false);
+            pagPrimera.setEnabled(false);
+            pagFinal.setEnabled(false);
+            listPaginacion.get(0).setEnabled(false);
+        }
+
     }
 
     private void siguientePaginacion() {
