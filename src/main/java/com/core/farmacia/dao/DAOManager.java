@@ -26,4 +26,5 @@ public interface DAOManager {
     DAOPaginacionBs crearPaginacion();
     DAOCompra_bs crearCompraBs();
     DAOProveedorBs crearProveedor();
+    DAOCompraProducBs crearRegistroCompra();
 }

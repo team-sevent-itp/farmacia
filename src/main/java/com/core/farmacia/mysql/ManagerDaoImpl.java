@@ -7,6 +7,7 @@ package com.core.farmacia.mysql;
 
 import com.core.farmacia.dao.DAOCliente;
 import com.core.farmacia.dao.DAOCompra;
+import com.core.farmacia.dao.DAOCompraProducBs;
 import com.core.farmacia.dao.DAOCompra_bs;
 import com.core.farmacia.dao.DAODepartamento;
 import com.core.farmacia.dao.DAOGenero;
@@ -42,6 +43,7 @@ public class ManagerDaoImpl implements DAOManager {
     DAOMunicipio municipios = null;
     DAOPaginacionBs paginacion = null;
     DAOCompra_bs compra_bs = null;
+    DAOCompraProducBs reg_comp_bs = null;
 
     Connection conn;
 
@@ -157,6 +159,14 @@ public class ManagerDaoImpl implements DAOManager {
             proveedores = new EntProveedorDaoImpl(conn);
         }
         return proveedores;
+    }
+
+    @Override
+    public DAOCompraProducBs crearRegistroCompra() {
+        if (reg_comp_bs == null) {
+            reg_comp_bs = new EntRegistroCompraImpl(conn);
+        }
+        return reg_comp_bs;
     }
 
 }
