@@ -51,14 +51,14 @@ public class ManagerDaoImpl implements DAOManager {
         conn = DriverManager.getConnection("jdbc:mysql://" + host + "/" + db, user, pass);
     }
 
-    @Override
+    /*@Override
     public DAOCompra comprar() {
 
         if (compras == null) {
             compras = new CompraMysqlDaoImpl(conn, this);
         }
         return compras;
-    }
+    }*/
 
     @Override
     public DAORegistroCompra registrarCompra() {
