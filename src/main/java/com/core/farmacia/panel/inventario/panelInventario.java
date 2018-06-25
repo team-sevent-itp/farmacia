@@ -213,10 +213,7 @@ public class panelInventario extends javax.swing.JPanel {
         resaltarPosPagina(indice, 132, 192, 199);
     }
 
-    private void _add_object() {
-        
-        
-        
+    private void _add_object() {      
         totalPag = lim / pag;
 
         if (lim % pag != 0) {

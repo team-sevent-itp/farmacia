@@ -7,7 +7,9 @@ package com.core.farmacia.mysql;
 
 import com.core.farmacia.dao.DAOException;
 import com.core.farmacia.dao.DAOLineaProducto;
+import com.core.farmacia.model.Ent_paginacion_bs;
 import com.core.farmacia.model.LineaProducto;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,7 +30,8 @@ public class LineaProductoMysqlDaoImpl implements DAOLineaProducto {
     private String UPDATE = "UPDATE linea_producto SET nombre = ? WHERE id = ?";
     private String GETALL = "SELECT id, nombre FROM linea_producto";
     private String GETONE = "SELECT id, nombre FROM linea_producto WHERE id = ?";
-
+    private String SEARCH = "{call ps_linea_producto(?,?,?)}";
+    
     Connection conn;
 
     public LineaProductoMysqlDaoImpl(Connection conn) {
@@ -173,7 +176,7 @@ public class LineaProductoMysqlDaoImpl implements DAOLineaProducto {
                     new DAOException("Error al cerrar el stact");
                 }
             }
-            if(rs != null){
+            if (rs != null) {
                 try {
                     rs.close();
                 } catch (SQLException ex) {
@@ -183,6 +186,49 @@ public class LineaProductoMysqlDaoImpl implements DAOLineaProducto {
         }
 
         return lineaProducto;
+    }
+
+    @Override
+    public List<LineaProducto> vw_linea_produc(int lim, int end, String value) throws DAOException{
+        List<LineaProducto> list = new ArrayList<>();
+        CallableStatement stact = null;
+        ResultSet rs = null;
+
+        try {
+            stact = conn.prepareCall(SEARCH);
+            stact.setInt(1, lim);
+            stact.setInt(2, end);
+            stact.setString(3, value);
+
+            stact.execute();
+            rs = stact.getResultSet();
+
+            while (rs.next()) {
+                LineaProducto linea = new LineaProducto(rs.getInt("id"), rs.getString("nombre"));
+                list.add(linea);
+            }
+
+        } catch (SQLException ex) {
+            new DAOException("Error al llamar el procedimiento", ex);
+
+        } finally {
+            if (stact != null) {
+                try {
+                    stact.close();
+                } catch (SQLException ex) {
+                    new DAOException("Error al cerrar stact", ex);
+                }
+            }
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException ex) {
+                    new DAOException("Error al cerrar stact", ex);
+                }
+            }
+
+        }
+        return list;
     }
 
 }

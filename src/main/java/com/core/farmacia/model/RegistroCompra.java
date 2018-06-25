@@ -12,22 +12,22 @@ import java.util.Objects;
  *
  * @author nuevo
  */
+
+/*Esta clase es para operaciones basicas de insertado*/
 public class RegistroCompra {
-    private long id;
-    private Compra idCompra;
-    private Producto idProducto;
+
+    private int id;
+    private int idCompra;
+    private int idProducto;
     private double cantidadUnidades;
     private double precioUnidades;
     private double subTotal;
     private double iva;
     private double total;
-    private LocalDate fecha;
+    private LocalDate fechaVencimiento;
     private String lote;
 
-    public RegistroCompra(long id, Compra idCompra, Producto idProducto, double cantidadUnidades,
-            double precioUnidades, double subTotal, double iva, double total, 
-            LocalDate fecha, String lote) {
-        this.id = id;
+    public RegistroCompra(int idCompra, int idProducto, double cantidadUnidades, double precioUnidades, double subTotal, double iva, double total, LocalDate fechaVencimiento, String lote) {
         this.idCompra = idCompra;
         this.idProducto = idProducto;
         this.cantidadUnidades = cantidadUnidades;
@@ -35,36 +35,27 @@ public class RegistroCompra {
         this.subTotal = subTotal;
         this.iva = iva;
         this.total = total;
-        this.fecha = fecha;
+        this.fechaVencimiento = fechaVencimiento;
         this.lote = lote;
     }
-   
+
     public RegistroCompra() {
-        this.id=0;
-        this.idCompra=null;
-        this.idProducto=null;
-        this.cantidadUnidades=0D;
-        this.precioUnidades=0D;
-        this.iva=0D;
-        this.subTotal=0D;
-        this.total=0D;
-        this.fecha=null;
-        this.lote="";        
-    }   
+    }
+    
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 11 * hash + (int) (this.id ^ (this.id >>> 32));
-        hash = 11 * hash + Objects.hashCode(this.idCompra);
-        hash = 11 * hash + Objects.hashCode(this.idProducto);
-        hash = 11 * hash + (int) (Double.doubleToLongBits(this.cantidadUnidades) ^ (Double.doubleToLongBits(this.cantidadUnidades) >>> 32));
-        hash = 11 * hash + (int) (Double.doubleToLongBits(this.precioUnidades) ^ (Double.doubleToLongBits(this.precioUnidades) >>> 32));
-        hash = 11 * hash + (int) (Double.doubleToLongBits(this.subTotal) ^ (Double.doubleToLongBits(this.subTotal) >>> 32));
-        hash = 11 * hash + (int) (Double.doubleToLongBits(this.iva) ^ (Double.doubleToLongBits(this.iva) >>> 32));
-        hash = 11 * hash + (int) (Double.doubleToLongBits(this.total) ^ (Double.doubleToLongBits(this.total) >>> 32));
-        hash = 11 * hash + Objects.hashCode(this.fecha);
-        hash = 11 * hash + Objects.hashCode(this.lote);
+        int hash = 3;
+        hash = 59 * hash + this.id;
+        hash = 59 * hash + this.idCompra;
+        hash = 59 * hash + this.idProducto;
+        hash = 59 * hash + (int) (Double.doubleToLongBits(this.cantidadUnidades) ^ (Double.doubleToLongBits(this.cantidadUnidades) >>> 32));
+        hash = 59 * hash + (int) (Double.doubleToLongBits(this.precioUnidades) ^ (Double.doubleToLongBits(this.precioUnidades) >>> 32));
+        hash = 59 * hash + (int) (Double.doubleToLongBits(this.subTotal) ^ (Double.doubleToLongBits(this.subTotal) >>> 32));
+        hash = 59 * hash + (int) (Double.doubleToLongBits(this.iva) ^ (Double.doubleToLongBits(this.iva) >>> 32));
+        hash = 59 * hash + (int) (Double.doubleToLongBits(this.total) ^ (Double.doubleToLongBits(this.total) >>> 32));
+        hash = 59 * hash + Objects.hashCode(this.fechaVencimiento);
+        hash = 59 * hash + Objects.hashCode(this.lote);
         return hash;
     }
 
@@ -81,6 +72,12 @@ public class RegistroCompra {
         }
         final RegistroCompra other = (RegistroCompra) obj;
         if (this.id != other.id) {
+            return false;
+        }
+        if (this.idCompra != other.idCompra) {
+            return false;
+        }
+        if (this.idProducto != other.idProducto) {
             return false;
         }
         if (Double.doubleToLongBits(this.cantidadUnidades) != Double.doubleToLongBits(other.cantidadUnidades)) {
@@ -101,39 +98,33 @@ public class RegistroCompra {
         if (!Objects.equals(this.lote, other.lote)) {
             return false;
         }
-        if (!Objects.equals(this.idCompra, other.idCompra)) {
-            return false;
-        }
-        if (!Objects.equals(this.idProducto, other.idProducto)) {
-            return false;
-        }
-        if (!Objects.equals(this.fecha, other.fecha)) {
+        if (!Objects.equals(this.fechaVencimiento, other.fechaVencimiento)) {
             return false;
         }
         return true;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Compra getIdCompra() {
+    public int getIdCompra() {
         return idCompra;
     }
 
-    public void setIdCompra(Compra idCompra) {
+    public void setIdCompra(int idCompra) {
         this.idCompra = idCompra;
     }
 
-    public Producto getIdProducto() {
+    public int getIdProducto() {
         return idProducto;
     }
 
-    public void setIdProducto(Producto idProducto) {
+    public void setIdProducto(int idProducto) {
         this.idProducto = idProducto;
     }
 
@@ -177,12 +168,12 @@ public class RegistroCompra {
         this.total = total;
     }
 
-    public LocalDate getFecha() {
-        return fecha;
+    public LocalDate getFechaVencimiento() {
+        return fechaVencimiento;
     }
 
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+    public void setFechaVencimiento(LocalDate fechaVencimiento) {
+        this.fechaVencimiento = fechaVencimiento;
     }
 
     public String getLote() {
@@ -195,10 +186,10 @@ public class RegistroCompra {
 
     @Override
     public String toString() {
-        return "RegistroCompra{" + "id=" + id + ", idCompra=" + idCompra + ", idProducto=" 
-                + idProducto + ", cantidadUnidades=" + cantidadUnidades 
-                + ", precioUnidades=" + precioUnidades + ", subTotal=" + subTotal 
-                + ", iva=" + iva + ", total=" + total + ", fecha=" + fecha + ", lote=" + lote + '}';
+        return "RegistroCompra{" + "id=" + id + ", idCompra=" + idCompra + ", idProducto=" + idProducto
+                + ", cantidadUnidades=" + cantidadUnidades + ", precioUnidades=" + precioUnidades
+                + ", subTotal=" + subTotal + ", iva=" + iva + ", total=" + total
+                + ", fechaVencimiento=" + fechaVencimiento.toString() + ", lote=" + lote + '}';
     }
-    
+
 }

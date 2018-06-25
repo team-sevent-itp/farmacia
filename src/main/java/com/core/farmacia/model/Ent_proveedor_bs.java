@@ -1,4 +1,3 @@
-
 package com.core.farmacia.model;
 
 import java.util.Objects;
@@ -8,7 +7,7 @@ import java.util.Objects;
  * @author desconocido
  */
 public class Ent_proveedor_bs {
-    
+
     private int id;
     private String nombre;
     private String numero1;
@@ -21,6 +20,14 @@ public class Ent_proveedor_bs {
         this.numero1 = numero1;
         this.numero2 = numero2;
         this.id_municipio = id_municipio;
+    }
+
+    public Ent_proveedor_bs() {
+        this.id = 0;
+        this.nombre = "";
+        this.numero1 = "";
+        this.numero2 = "";
+        this.id_municipio = "";
     }
 
     @Override
@@ -106,9 +113,7 @@ public class Ent_proveedor_bs {
 
     @Override
     public String toString() {
-        return "Ent_proveedor_bs{" + "id=" + id + ", nombre=" + nombre + ", numero1=" + numero1 + ", numero2=" + numero2 + ", id_municipio=" + id_municipio + '}';
+        return nombre;
     }
-    
-    
+
 }
-    

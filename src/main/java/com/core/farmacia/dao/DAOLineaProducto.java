@@ -6,11 +6,12 @@
 package com.core.farmacia.dao;
 
 import com.core.farmacia.model.LineaProducto;
+import java.util.List;
 
 /**
  *
  * @author nuevo
  */
 public interface DAOLineaProducto extends DAOGenerico<LineaProducto, Long>{
-    
+    public List<LineaProducto> vw_linea_produc(int lim, int end, String value) throws DAOException;
 }

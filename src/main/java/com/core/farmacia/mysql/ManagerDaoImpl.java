@@ -150,7 +150,10 @@ public class ManagerDaoImpl implements DAOManager {
 
     @Override
     public DAOCompra_bs crearCompraBs() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(compra_bs == null){
+            compra_bs = new EntCompraBs(conn);
+        }
+        return compra_bs;
     }
 
     @Override

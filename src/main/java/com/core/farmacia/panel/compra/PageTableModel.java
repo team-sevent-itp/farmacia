@@ -3,15 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.core.farmacia.panel.inventario;
+package com.core.farmacia.panel.compra;
 
+import com.core.farmacia.dao.DAOCompraProducBs;
 import com.core.farmacia.dao.DAOException;
-import com.core.farmacia.dao.DAOPaginacionBs;
 import com.core.farmacia.model.Ent_paginacion_bs;
-import java.awt.Dimension;
+import com.core.farmacia.model.Ent_reg_comp;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JButton;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -21,15 +20,15 @@ import javax.swing.table.AbstractTableModel;
 public class PageTableModel extends AbstractTableModel {
 
     int contador = 0;
-    DAOPaginacionBs page = null;
-    List<Ent_paginacion_bs> listAN = new ArrayList<>();
+    DAOCompraProducBs page = null;
+    List<Ent_reg_comp> listAN = new ArrayList<>();
 
-    public PageTableModel(DAOPaginacionBs page) {
+    public PageTableModel(DAOCompraProducBs page) {
         this.page = page;
     }
 
     public void update(int ini, int fin, String value) throws DAOException {
-        listAN = page.paginacion_producto(ini, fin, value);
+        listAN = page.vw_compra_productos(ini, fin, value);
     }
 
     @Override
@@ -37,9 +36,9 @@ public class PageTableModel extends AbstractTableModel {
     public String getColumnName(int column) {
         switch (column) {
             case 0:
-                return "Nombre";
+                return "Producto";
             case 1:
-                return "cantidad";
+                return "Proveedor";
             case 2:
                 return "iva";
             case 3:
@@ -71,15 +70,15 @@ public class PageTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Ent_paginacion_bs pagination = listAN.get(rowIndex);
+        Ent_reg_comp pagination = listAN.get(rowIndex);
 
         switch (columnIndex) {
             case 0:
-                return pagination.getNombre_producto();
+                return pagination.getNombreProducto();
             case 1:
-                return pagination.getCantidad();
-            //case 3:
-                
+                return pagination.getNombreProveedor();
+            case 2:
+                return pagination.getIva();
             default:
                 return "";
         }
