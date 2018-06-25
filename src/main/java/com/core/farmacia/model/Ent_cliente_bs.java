@@ -8,7 +8,7 @@ import java.util.Objects;
  * @author desconocido
  */
 public class Ent_cliente_bs {
-    private int id;
+    private String id;
     private String nombres;
     private String apellidos;
     private String sexo;
@@ -16,7 +16,7 @@ public class Ent_cliente_bs {
     private String telefono2;
     private String municipio;
 
-    public Ent_cliente_bs(int id, String nombres, String apellidos, String sexo, String telefono1, String telefono2, String municipio) {
+    public Ent_cliente_bs(String id, String nombres, String apellidos, String sexo, String telefono1, String telefono2, String municipio) {
         this.id = id;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -28,14 +28,14 @@ public class Ent_cliente_bs {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 31 * hash + this.id;
-        hash = 31 * hash + Objects.hashCode(this.nombres);
-        hash = 31 * hash + Objects.hashCode(this.apellidos);
-        hash = 31 * hash + Objects.hashCode(this.sexo);
-        hash = 31 * hash + Objects.hashCode(this.telefono1);
-        hash = 31 * hash + Objects.hashCode(this.telefono2);
-        hash = 31 * hash + Objects.hashCode(this.municipio);
+        int hash = 5;
+        hash = 53 * hash + Objects.hashCode(this.id);
+        hash = 53 * hash + Objects.hashCode(this.nombres);
+        hash = 53 * hash + Objects.hashCode(this.apellidos);
+        hash = 53 * hash + Objects.hashCode(this.sexo);
+        hash = 53 * hash + Objects.hashCode(this.telefono1);
+        hash = 53 * hash + Objects.hashCode(this.telefono2);
+        hash = 53 * hash + Objects.hashCode(this.municipio);
         return hash;
     }
 
@@ -51,7 +51,7 @@ public class Ent_cliente_bs {
             return false;
         }
         final Ent_cliente_bs other = (Ent_cliente_bs) obj;
-        if (this.id != other.id) {
+        if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         if (!Objects.equals(this.nombres, other.nombres)) {
@@ -75,11 +75,11 @@ public class Ent_cliente_bs {
         return true;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -135,5 +135,7 @@ public class Ent_cliente_bs {
     public String toString() {
         return "Ent_cliente_bs{" + "id=" + id + ", nombres=" + nombres + ", apellidos=" + apellidos + ", sexo=" + sexo + ", telefono1=" + telefono1 + ", telefono2=" + telefono2 + ", municipio=" + municipio + '}';
     }
+
+    
     
 }

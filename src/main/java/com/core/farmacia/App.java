@@ -3,6 +3,7 @@ package com.core.farmacia;
 import com.core.farmacia.dao.DAOException;
 import com.core.farmacia.dao.DAOManager;
 import com.core.farmacia.model.BusquedaCombo;
+import com.core.farmacia.model.Ent_cliente_bs;
 import com.core.farmacia.model.Ent_paginacion_bs;
 import com.core.farmacia.model.Laboratorio;
 import com.core.farmacia.model.LineaProducto;
@@ -47,6 +48,10 @@ public class App {
 
             prinPnl principal = new prinPnl(manager);
             principal.setVisible(true);
+            /*List<Ent_cliente_bs> clienteList = manager.creaCliente().paginacion_clinte(0, 10, "HERNANDO");
+            clienteList.forEach(ob->{
+                System.out.println(ob.toString());
+            });*/
             /*
             Ent_producto actu = new Ent_producto();
             actu.setNombre("novicio");

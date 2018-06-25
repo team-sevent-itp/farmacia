@@ -35,14 +35,16 @@ public class clienteTableModel extends AbstractTableModel{
     public String getColumnName(int column) {
         switch (column) {
             case 0:
-                return "Nombre";
+                return "Nombres";
             case 1:
-                return "sexo";
+                return "Apellidos";
             case 2:
-                return "Telefóno2";
+                return "Sexo";
             case 3:
                 return "Telefóno1";
             case 4:
+                return "Telefóno2";
+            case 5:
                 return "municipio";
             default:
                 return "NN";
@@ -55,7 +57,7 @@ public class clienteTableModel extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-       return 5;
+       return 6;
     }
 
     @Override
@@ -64,9 +66,9 @@ public class clienteTableModel extends AbstractTableModel{
 
         switch (columnIndex) {
             case 0:
-                return pagination.getApellidos();
-            case 1:
                 return pagination.getNombres();
+            case 1:
+                return pagination.getApellidos();
            
             case 2:
                 return pagination.getSexo();

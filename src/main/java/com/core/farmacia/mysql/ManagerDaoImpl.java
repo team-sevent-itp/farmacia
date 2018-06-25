@@ -6,6 +6,7 @@
 package com.core.farmacia.mysql;
 
 import com.core.farmacia.dao.DAOCliente;
+import com.core.farmacia.dao.DAOClienteBs;
 import com.core.farmacia.dao.DAOCompra;
 import com.core.farmacia.dao.DAOCompraProducBs;
 import com.core.farmacia.dao.DAOCompra_bs;
@@ -44,7 +45,8 @@ public class ManagerDaoImpl implements DAOManager {
     DAOPaginacionBs paginacion = null;
     DAOCompra_bs compra_bs = null;
     DAOCompraProducBs reg_comp_bs = null;
-
+    DAOClienteBs cliente_bs;
+    
     Connection conn;
 
     public ManagerDaoImpl(String host, String db, String user, String pass) throws SQLException {
@@ -59,7 +61,6 @@ public class ManagerDaoImpl implements DAOManager {
         }
         return compras;
     }*/
-
     @Override
     public DAORegistroCompra registrarCompra() {
         if (registroCompras == null) {
@@ -87,8 +88,11 @@ public class ManagerDaoImpl implements DAOManager {
     }
 
     @Override
-    public DAOCliente crearCliente() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public DAOClienteBs creaCliente() {
+        if (cliente_bs == null) {
+            cliente_bs = new EntClienteDAOImpl(conn);
+        }
+        return cliente_bs;
     }
 
     @Override
@@ -150,7 +154,7 @@ public class ManagerDaoImpl implements DAOManager {
 
     @Override
     public DAOCompra_bs crearCompraBs() {
-        if(compra_bs == null){
+        if (compra_bs == null) {
             compra_bs = new EntCompraBs(conn);
         }
         return compra_bs;

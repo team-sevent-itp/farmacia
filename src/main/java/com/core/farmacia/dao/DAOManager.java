@@ -16,7 +16,7 @@ public interface DAOManager {
     DAORegistroVenta registrarVenta();
     DAOVenta crearVenta();
     DAOProducto crearProducto();
-    DAOCliente crearCliente();
+    DAOClienteBs creaCliente();
     DAOLaboratorio crearLaboratorio();
     DAOPresentacion crearPresentacion();
     DAOGenero crearGenero();
